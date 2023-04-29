@@ -101,6 +101,7 @@ public class MyHomePage {
 		// code for search button
 		searchButton.addActionListener(new ButtonListener(searchButton, frame));
 		searchButton.setPreferredSize(new Dimension(400, 70));
+		searchButton.setName("Search");
 		frame.add(panel, BorderLayout.NORTH);
 		searchButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		Dimension sizeFive = searchButton.getPreferredSize();
@@ -110,6 +111,7 @@ public class MyHomePage {
 		// code for map button
 		mapButton.addActionListener(new ButtonListener(mapButton, frame));
 		mapButton.setPreferredSize(new Dimension(190, 70)); //
+		mapButton.setName("Map");
 		mapButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		Dimension sizeNine = mapButton.getPreferredSize();
 		mapButton.setBounds(425 + insets.left, 475 + insets.bottom, sizeNine.width, sizeNine.height);

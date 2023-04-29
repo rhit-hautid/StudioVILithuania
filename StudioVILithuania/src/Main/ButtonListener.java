@@ -19,6 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class ButtonListener extends AbstractButtonListener {
 
+	// Variables
+	String buttonName;
+
 	/**
 	 * Constructor for ButtonListener class. Calls the constructor of the superclass
 	 * (AbstractButtonListener) to initialize the variables.
@@ -29,6 +32,7 @@ public class ButtonListener extends AbstractButtonListener {
 	 */
 	public ButtonListener(JButton myClickedButton, JFrame myFrame) {
 		super(myClickedButton, myFrame);
+
 	}
 
 	/**
@@ -39,12 +43,14 @@ public class ButtonListener extends AbstractButtonListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String buttonName = this.getButton().getText();
+
+		buttonName = this.getButton().getName();
+
 		JFrame myChangedFrame = this.getMyFrame();
 		JLabel myLabel = MyHomePage.updatableLabel;
 		String myLabelText = MyHomePage.updatableLabel.getText();
-		String[] cityNames = { "Klaipedos", "Telsiai", "Taurages", "Saiauliai", "Panevezio", "Kauno", "Utenos",
-				"Vilniaus", "Alytaus", "Marijampoles" };
+		String[] castleNames = { "Klaipeda", "Panemune", "Raudone", "Raudonvaris", "Kaunas", "Birzai", "Siesikai",
+				"Medininkai", "Norviliskes", "Trakai" };
 
 		// If the "Search" button is clicked
 		if (buttonName.equals("Search")) {
@@ -62,12 +68,14 @@ public class ButtonListener extends AbstractButtonListener {
 			}
 
 		}
+
 		// If one of the city buttons is clicked
-		for (int i = 0; i < cityNames.length; i++) {
-			if (buttonName.equals(cityNames[i])) {
+		for (int i = 0; i < castleNames.length; i++) {
+			if (buttonName.equals(castleNames[i])) {
 				myChangedFrame.getContentPane().removeAll();
 				myChangedFrame.getContentPane().repaint();
-				new InformationScreen(myChangedFrame, cityNames[i]);
+				new InformationScreen(myChangedFrame, castleNames[i]);
+
 			}
 
 		}

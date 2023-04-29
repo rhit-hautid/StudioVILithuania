@@ -48,7 +48,7 @@ public class SixClosestLocations {
 		String[] cityNames = { "Klaipedos", "Telsiai", "Taurages", "Saiauliai", "Panevezio", "Kauno", "Utenos",
 				"Vilniaus", "Alytaus", "Marijampoles" };
 
-		String[] castleNames = { "Klaipeda", "Panemune", "Raudone", "Raundovaris", "Kaunas", "Birzai", "Siesikai",
+		String[] castleNames = { "Klaipeda", "Panemune", "Raudone", "Raudonvaris", "Kaunas", "Birzai", "Siesikai",
 				"Medininkai", "Norviliskes", "Trakai" };
 
 		ArrayList<Integer> myCityXAndY = myCityMap.get(cityName);
@@ -78,7 +78,7 @@ public class SixClosestLocations {
 		// Sort the distances and associated strings in ascending order based on the
 		// distances
 		// Create a list to hold the castle names
-		castleNames1 = Arrays.asList("Klaipeda", "Panemune", "Raudone", "Raundovaris", "Kaunas", "Birzai", "Siesikai",
+		castleNames1 = Arrays.asList("Klaipeda", "Panemune", "Raudone", "Raudonvaris", "Kaunas", "Birzai", "Siesikai",
 				"Medininkai", "Norviliskes", "Trakai");
 
 		// Sort the castle names based on their distances from the selected city

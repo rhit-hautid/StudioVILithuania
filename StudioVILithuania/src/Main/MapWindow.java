@@ -89,7 +89,7 @@ public class MapWindow {
 				"Vilniaus", "Alytaus", "Marijampoles" };
 
 		// Arrays to hold the names of the castle and castles.
-		String[] castleNames = { "Klaipeda", "Panemune", "Raudone", "Raundovaris", "Kaunas", "Birzai", "Siesikai",
+		String[] castleNames = { "Klaipeda", "Panemune", "Raudone", "Raudonvaris", "Kaunas", "Birzai", "Siesikai",
 				"Medininkai", "Norviliskes", "Trakai" };
 
 		// Calculate the distance between each castle and each city
