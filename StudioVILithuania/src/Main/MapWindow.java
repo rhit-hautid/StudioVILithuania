@@ -168,7 +168,7 @@ public class MapWindow {
 		}
 
 		// add image of map to the panel
-		ImageIcon myMap = new ImageIcon("HomePageImages/LithuanianMap.PNG");
+		ImageIcon myMap = new ImageIcon("StudioVILithuania/HomePageImages/LithuanianMap.PNG");
 		JLabel jlPic = new JLabel(myMap);
 		Dimension size = jlPic.getPreferredSize();
 		jlPic.setBounds(0, 0, size.width, size.height);
