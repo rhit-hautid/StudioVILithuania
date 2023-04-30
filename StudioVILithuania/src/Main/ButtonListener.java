@@ -92,6 +92,11 @@ public class ButtonListener extends AbstractButtonListener {
 			new MyHomePage();
 		}
 
+		if (buttonName.equals("Selection Screen")) {
+			myChangedFrame.getContentPane().removeAll();
+			new SelectionScreen(myChangedFrame, myLabel);
+		}
+
 	}
 
 	/**
