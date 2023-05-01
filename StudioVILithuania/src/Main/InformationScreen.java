@@ -46,6 +46,7 @@ public class InformationScreen extends AbstractInformationScreen {
 					Restaurants = sb.toString().trim();
 					sb.setLength(0);
 					System.out.println(Restaurants);
+					System.out.println(Restaurants);
 
 				} else {
 					sb.append(line).append("\n");
