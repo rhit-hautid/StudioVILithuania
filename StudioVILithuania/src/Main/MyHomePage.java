@@ -62,7 +62,7 @@ public class MyHomePage {
 		Insets insets = panel.getInsets();
 
 		// Code for DropDown Button One
-		String[] choices = { "Venue", "Castles", "Restaurants", "Museums", "Hotels" };
+		String[] choices = { "Venue", "Castles", "Museums", "Historical Sites" };
 		final JComboBox<String> dropDownButton = new JComboBox<String>(choices);
 		dropDownButton.setPreferredSize(new Dimension(400, 70));
 		dropDownButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
