@@ -72,7 +72,7 @@ public class MyHomePage {
 		panel.add(dropDownButton);
 
 		// Code for DropDown Button Two
-		String[] choicesTwo = { "Number of People", "1", "2", "3", "4", "5+" };
+		String[] choicesTwo = { "Type of Party", "Solo", "Couple", "Family", "Group" };
 		final JComboBox<String> dropDownButtonTwo = new JComboBox<String>(choicesTwo);
 		dropDownButtonTwo.setPreferredSize(new Dimension(400, 70));
 		dropDownButtonTwo.setFont(new Font("American Typewriter", Font.BOLD, 20));
