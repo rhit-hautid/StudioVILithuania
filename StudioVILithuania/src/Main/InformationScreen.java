@@ -1,8 +1,8 @@
 package Main;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,40 +18,19 @@ public class InformationScreen extends AbstractInformationScreen {
 	public void SpecificInformationScreen(String string, JPanel myPanelOne, JPanel myPanelTwo, JPanel myPanelThree) {
 
 		String fileName = "C:\\Users\\hautid\\git\\StudioVILithuania\\StudioVILithuania\\TextFiles\\Birzai";
-		String CastleHistory = null;
-		String WhatsNearby = null;
-		String GettingAround = null;
-		String Restaurants = null;
 
-		try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-			String line;
-			StringBuilder sb = new StringBuilder();
-			while ((line = reader.readLine()) != null) {
-				if (line.startsWith("<b> Castle History")) {
-					CastleHistory = sb.toString().trim();
-					sb.setLength(0);
-					System.out.println(CastleHistory);
-					
-				} else if (line.startsWith("<b> What's Nearby")) {
-					WhatsNearby = sb.toString().trim();
-					sb.setLength(0);
-					System.out.println(WhatsNearby);
+		try (Scanner reader = new Scanner(new FileReader(fileName))) {
 
-				} else if (line.startsWith("<b> Getting Around")) {
-					GettingAround = sb.toString().trim();
-					sb.setLength(0);
-					System.out.println(GettingAround);
+			String castleHistory = reader.nextLine();
+			String whatsNearby = reader.nextLine();
+			String gettingAround = reader.nextLine();
+			String restaurants = reader.nextLine();
 
-				} else if (line.startsWith("<b> Restaurants")) {
-					Restaurants = sb.toString().trim();
-					sb.setLength(0);
-					System.out.println(Restaurants);
-					System.out.println(Restaurants);
+			System.out.println(castleHistory);
+			System.out.println(whatsNearby);
+			System.out.println(gettingAround);
+			System.out.println(restaurants);
 
-				} else {
-					sb.append(line).append("\n");
-				}
-			}
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());
 		}
