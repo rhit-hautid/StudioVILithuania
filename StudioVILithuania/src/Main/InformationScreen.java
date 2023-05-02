@@ -1,7 +1,11 @@
 package Main;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -12,7 +16,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * 
+ *
+ * @author Isabel Haut
+ */
+
 public class InformationScreen extends AbstractInformationScreen {
+
+	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(810, 700);
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
 		super(myChangedFrame, string);
@@ -31,10 +43,36 @@ public class InformationScreen extends AbstractInformationScreen {
 		myManyImages.setBorderPainted(false);
 		myManyImages.setIcon(myManyImage);
 		myPanelOne.add(myManyImages);
-		
 
 		JButton myAdditionalInformation = new JButton("More Info About " + string);
+		myAdditionalInformation.setName("MoreInfo");
 		myPanelTwo.add(myAdditionalInformation);
+
+		myAdditionalInformation.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame(); // creates a new frame
+				JPanel panel = new JPanel(); // creates a new panel
+
+				frame.setSize(FIRST_SCREEN_SIZE);
+				panel.setSize(FIRST_SCREEN_SIZE);
+				frame.add(panel);
+				frame.setTitle("Additional Information");
+				Color myYellow = new Color(245, 224, 143);
+
+				panel.setBackground(myYellow);
+
+				// moves the mapWindow to appear on the right side of the screen
+				Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+				frame.setLocation(dim.width / 2 - frame.getSize().width / 8,
+						dim.height / 2 - frame.getSize().height / 2);
+
+				frame.setVisible(true);
+				frame.setResizable(false);
+
+			}
+		});
 
 		String fileName = "C:\\Users\\hautid\\git\\StudioVILithuania\\StudioVILithuania\\TextFiles\\Birzai";
 

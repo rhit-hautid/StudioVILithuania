@@ -96,6 +96,12 @@ public class ButtonListener extends AbstractButtonListener {
 			myChangedFrame.getContentPane().removeAll();
 			new SelectionScreen(myChangedFrame, myLabel);
 		}
+	
+		if (buttonName.equals("MoreInfo")) {
+			myChangedFrame.getContentPane().removeAll();
+			myChangedFrame.getContentPane().repaint();
+
+		}
 
 	}
 

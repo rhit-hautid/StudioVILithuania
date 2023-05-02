@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  */
 public abstract class AbstractInformationScreen {
 
-	private JFrame myFrame;
+	protected JFrame myFrame;
 	private String cityClicked;
 	private JButton mySelectionButton;
 	private JPanel mySelectionPanel;

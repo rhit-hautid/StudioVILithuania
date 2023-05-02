@@ -147,11 +147,11 @@ public class MyHomePage {
 		jlPic2.setBounds(280 + insets.left, -33 + insets.bottom, sizeSix.width, 200 + sizeSix.height);
 		panel.add(jlPic2);
 
-		// Color blue
-		Color myBlue = new Color(245, 224, 143);
+		// Color yellow
+		Color myYellow = new Color(245, 224, 143);
 
 		// sets panel to my custom color
-		panel.setBackground(myBlue);
+		panel.setBackground(myYellow);
 		// makes frame visible
 
 		frame.setVisible(true);
