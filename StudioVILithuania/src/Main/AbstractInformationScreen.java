@@ -49,9 +49,9 @@ public abstract class AbstractInformationScreen {
 		mySelectionPanel.setPreferredSize(new Dimension(1500, 50));
 
 		// The panel containing the location panel
-		myInformationPanel = new JPanel(new GridLayout(1, 3)); // Create a 3 by 3 GridLayout
+		myInformationPanel = new JPanel(new GridLayout(1, 2)); // Create a 3 by 3 GridLayout
 		// Set gaps between cells in the GridLayout
-		myInformationPanel.setLayout(new GridLayout(1, 3, 10, 0)); // Set horizontal and vertical gap to 50 pixels
+		myInformationPanel.setLayout(new GridLayout(1, 2, 10, 0)); // Set horizontal and vertical gap to 50 pixels
 		// Set border around the GridLayout
 		myInformationPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Set top, left, bottom, right
 																						// border to 50 pixels
@@ -75,15 +75,15 @@ public abstract class AbstractInformationScreen {
 		myPanelTwo = new JPanel();
 		myInformationPanel.add(myPanelTwo);
 
-		myPanelThree = new JPanel();
-		myInformationPanel.add(myPanelThree);
+//		myPanelThree = new JPanel();
+//		myInformationPanel.add(myPanelThree);
 
-		SpecificInformationScreen(cityClicked, myPanelOne, myPanelTwo, myPanelThree);
+		SpecificInformationScreen(cityClicked, myPanelOne, myPanelTwo);
 		
 		myFrame.revalidate();
 		myFrame.repaint();
 	}
 
-	public abstract void SpecificInformationScreen(String string, JPanel myPanelOne, JPanel myPanelTwo, JPanel myPanelThree);
+	public abstract void SpecificInformationScreen(String string, JPanel myPanelOne, JPanel myPanelTwo);
 
 }

@@ -1,10 +1,13 @@
 package Main;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,7 +20,21 @@ public class InformationScreen extends AbstractInformationScreen {
 	}
 
 	@Override
-	public void SpecificInformationScreen(String string, JPanel myPanelOne, JPanel myPanelTwo, JPanel myPanelThree) {
+	public void SpecificInformationScreen(String string, JPanel myPanelOne, JPanel myPanelTwo) {
+
+		JButton myManyImages = new JButton();
+		myManyImages.setPreferredSize(new Dimension(720, 400));
+
+		String myManyImagesPath = "StudioVILithuania/CastleImages/" + string + "Castle.PNG";
+		ImageIcon myManyImage = new ImageIcon(myManyImagesPath);
+		myManyImages.setContentAreaFilled(false);
+		myManyImages.setBorderPainted(false);
+		myManyImages.setIcon(myManyImage);
+		myPanelOne.add(myManyImages);
+		
+
+		JButton myAdditionalInformation = new JButton("More Info About " + string);
+		myPanelTwo.add(myAdditionalInformation);
 
 		String fileName = "C:\\Users\\hautid\\git\\StudioVILithuania\\StudioVILithuania\\TextFiles\\Birzai";
 
@@ -54,7 +71,7 @@ public class InformationScreen extends AbstractInformationScreen {
 			restaurantsLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 12));
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelThree.add(restaurantsLabel);
+			myPanelTwo.add(restaurantsLabel);
 
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());
