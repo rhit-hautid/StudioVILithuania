@@ -85,28 +85,28 @@ public class InformationScreen extends AbstractInformationScreen {
 
 			// Create a new JLabel and set the castleHistory text to it
 			JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
-			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 12));
+			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 20));
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 			myPanelOne.add(castleHistoryLabel);
 
 			// Create a new JLabel and set the castleHistory text to it
 			JLabel whatsNearbyLabel = new JLabel("<html>" + whatsNearby);
-			whatsNearbyLabel.setFont(new Font(whatsNearbyLabel.getText(), Font.PLAIN, 12));
+			whatsNearbyLabel.setFont(new Font(whatsNearbyLabel.getText(), Font.PLAIN, 20));
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 			myPanelTwo.add(whatsNearbyLabel);
 
 			// Create a new JLabel and set the castleHistory text to it
 			JLabel gettingAroundLabel = new JLabel("<html>" + gettingAround);
-			gettingAroundLabel.setFont(new Font(gettingAroundLabel.getText(), Font.PLAIN, 12));
+			gettingAroundLabel.setFont(new Font(gettingAroundLabel.getText(), Font.PLAIN, 20));
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 			myPanelTwo.add(gettingAroundLabel);
 
 			// Create a new JLabel and set the castleHistory text to it
 			JLabel restaurantsLabel = new JLabel("<html>" + restaurants);
-			restaurantsLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 12));
+			restaurantsLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 20));
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 			myPanelTwo.add(restaurantsLabel);
