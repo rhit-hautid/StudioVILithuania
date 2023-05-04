@@ -189,7 +189,7 @@ public class MapWindow {
 		mapPanel.setVisible(true);
 
 	}
-
+//a
 	/**
 	 * 
 	 * Sets the name of the castle selected by the user.
