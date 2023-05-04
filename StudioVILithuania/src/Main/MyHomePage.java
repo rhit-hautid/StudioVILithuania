@@ -36,11 +36,13 @@ public class MyHomePage {
 	JFrame frame;
 	JPanel panel;
 	JPanel panel2;
-	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(1500, 1000);
+	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(1540, 825);
 	JButton searchButton = new JButton("Search");
 	JButton mapButton = new JButton("Map");
-	private String cityClicked;
+//	private String cityClicked;
 	public static JLabel updatableLabel = new JLabel();
+//	GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//	GraphicsDevice device = graphics.getDefaultScreenDevice();
 
 	String[] TopPlaces = new String[6];
 
@@ -153,7 +155,7 @@ public class MyHomePage {
 		// sets panel to my custom color
 		panel.setBackground(myYellow);
 		// makes frame visible
-
+		//device.setFullScreenWindow(frame);
 		frame.setVisible(true);
 
 	}

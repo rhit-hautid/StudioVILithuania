@@ -182,6 +182,7 @@ public class MapWindow {
 				dim.height / 2 - mapWindow.getSize().height / 2);
 
 		// makes the window a fixed size that the user cannot change
+//		mapWindow.setAlwaysOnTop(true);
 		mapWindow.setResizable(false);
 		mapPanel.setBackground(Color.WHITE);
 		mapWindow.setVisible(true);
@@ -228,6 +229,10 @@ public class MapWindow {
 	 */
 	public void setLabel(JLabel label) {
 		this.label = label;
+	}
+	
+	public JFrame getWindow () {
+		return this.mapWindow;
 	}
 
 }

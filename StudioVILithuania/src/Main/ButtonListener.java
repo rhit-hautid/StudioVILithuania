@@ -21,6 +21,8 @@ public class ButtonListener extends AbstractButtonListener {
 
 	// Variables
 	String buttonName;
+	Boolean MapCheck = false;
+	MapWindow MapWindowSave;
 
 	/**
 	 * Constructor for ButtonListener class. Calls the constructor of the superclass
@@ -53,13 +55,28 @@ public class ButtonListener extends AbstractButtonListener {
 				"Medininkai", "Norviliskes", "Trakai" };
 
 		// If the "Search" button is clicked
+		// If the "Map" button is clicked
+		if (buttonName.equals("Map")) {
+			if(MapCheck == false) {
+				 
+				MapWindowSave = new MapWindow(myLabel);
+				MapCheck = true;
+			}
+			// TODO: Prevent user from opening multiple MapWindows at a time
+
+		}
+		
 		if (buttonName.equals("Search")) {
 
 			// Check if a location has been selected
 			if (myLabelText.equals(" None Selected")) {
+				//System.out.println(MapWindowSave.getWindow());
+				if(MapCheck == true) {
 				JOptionPane.showMessageDialog(myChangedFrame, "No Location Selected, Click Map and Proceed!",
 						"Please Select Your Location!", JOptionPane.ERROR_MESSAGE);
 				return;
+				}
+				
 			} else {
 				myChangedFrame.getContentPane().removeAll();
 				myChangedFrame.getContentPane().repaint();
@@ -79,14 +96,7 @@ public class ButtonListener extends AbstractButtonListener {
 			}
 
 		}
-		// If the "Map" button is clicked
-		if (buttonName.equals("Map")) {
-
-			// TODO: Prevent user from opening multiple MapWindows at a time
-
-			new MapWindow(myLabel);
-
-		}
+		
 		// If the "Home" button is clicked
 		if (buttonName.equals("Home")) {
 			new MyHomePage();
