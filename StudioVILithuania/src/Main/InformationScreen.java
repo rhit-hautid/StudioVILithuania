@@ -74,7 +74,9 @@ public class InformationScreen extends AbstractInformationScreen {
 			}
 		});
 
-		String fileName = "C:\\Users\\hautid\\git\\StudioVILithuania\\StudioVILithuania\\TextFiles\\Birzai";
+		
+		String fileName = "C:/Users/hautid/git/StudioVILithuania/StudioVILithuania/TextFiles/" + string;
+		
 
 		try (Scanner reader = new Scanner(new FileReader(fileName))) {
 
@@ -82,6 +84,7 @@ public class InformationScreen extends AbstractInformationScreen {
 			String whatsNearby = reader.nextLine();
 			String gettingAround = reader.nextLine();
 			String restaurants = reader.nextLine();
+			String usefulInformation = reader.nextLine();
 
 			// Create a new JLabel and set the castleHistory text to it
 			JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
@@ -110,6 +113,13 @@ public class InformationScreen extends AbstractInformationScreen {
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 			myPanelTwo.add(restaurantsLabel);
+
+			// Create a new JLabel and set the castleHistory text to it
+			JLabel usefulInformationLabel = new JLabel("<html>" + usefulInformation);
+			usefulInformationLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 20));
+
+			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+			myPanelTwo.add(usefulInformationLabel);
 
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());
