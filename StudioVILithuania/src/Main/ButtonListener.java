@@ -71,11 +71,11 @@ public class ButtonListener extends AbstractButtonListener {
 			// Check if a location has been selected
 			if (myLabelText.equals(" None Selected")) {
 				//System.out.println(MapWindowSave.getWindow());
-				if(MapCheck == true) {
+				//if(MapCheck == true) {
 				JOptionPane.showMessageDialog(myChangedFrame, "No Location Selected, Click Map and Proceed!",
 						"Please Select Your Location!", JOptionPane.ERROR_MESSAGE);
 				return;
-				}
+				//}
 				
 			} else {
 				myChangedFrame.getContentPane().removeAll();
