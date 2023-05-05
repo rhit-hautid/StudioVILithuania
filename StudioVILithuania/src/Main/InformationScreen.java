@@ -1,5 +1,6 @@
 package Main;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -24,7 +25,7 @@ import javax.swing.JPanel;
 
 public class InformationScreen extends AbstractInformationScreen {
 
-	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(810, 700);
+	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(850,525);
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
 		super(myChangedFrame, string);
@@ -48,6 +49,7 @@ public class InformationScreen extends AbstractInformationScreen {
 		myAdditionalInformation.setName("MoreInfo");
 		myPanelTwo.add(myAdditionalInformation);
 
+		
 		myAdditionalInformation.addActionListener(new ActionListener() {
 
 			@Override
@@ -63,6 +65,12 @@ public class InformationScreen extends AbstractInformationScreen {
 
 				panel.setBackground(myYellow);
 
+				
+				// add image of map to the panel
+				ImageIcon myAddInfo = new ImageIcon("StudioVILithuania/AdditionalInformation/" + string + ".PNG");
+				JLabel jlPic = new JLabel(myAddInfo);
+				panel.add(jlPic, BorderLayout.CENTER);
+				
 				// moves the mapWindow to appear on the right side of the screen
 				Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 				frame.setLocation(dim.width / 2 - frame.getSize().width / 8,
