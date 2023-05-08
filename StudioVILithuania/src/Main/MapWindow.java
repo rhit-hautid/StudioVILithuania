@@ -32,7 +32,7 @@ public class MapWindow {
 	public static HashMap<String, ArrayList<Integer>> cityMap = new HashMap<String, ArrayList<Integer>>();
 	// An ArrayList containing the names of six locations on the map.
 	public ArrayList<String> sixLocations = new ArrayList<String>();
-	JFrame mapWindow;
+	JFrame mapFrame;
 	JPanel mapPanel;
 	JLabel label;
 
@@ -79,10 +79,10 @@ public class MapWindow {
 	public MapWindow(JLabel updateableLabel) {
 		this.label = updateableLabel;
 
-		JFrame mapWindow = new JFrame("Map Window");
-		JPanel mapPanel = new JPanel();
+		this.mapFrame = new JFrame("Map Window");
+		this.mapPanel = new JPanel();
 		mapPanel.setLayout(null);
-		mapWindow.add(mapPanel);
+		mapFrame.add(mapPanel);
 
 		// Arrays to hold the names of the cities and castles.
 		String[] cityNames = { "Klaipedos", "Telsiai", "Taurages", "Saiauliai", "Panevezio", "Kauno", "Utenos",
@@ -151,6 +151,7 @@ public class MapWindow {
 						if (e.getSource().toString().contains(cityNames[i])) {
 							setSaveCastleChosen(cityNames[i]);
 							label.setText(" City: " + cityNames[i]);
+							mapFrame.dispose();
 						}
 					}
 				}
@@ -174,21 +175,25 @@ public class MapWindow {
 		jlPic.setBounds(0, 0, size.width, size.height);
 		mapPanel.add(jlPic);
 
-		mapWindow.setSize(810, 700);
+		mapFrame.setSize(810, 700);
 
 		// moves the mapWindow to appear on the right side of the screen
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		mapWindow.setLocation(dim.width / 2 - mapWindow.getSize().width / 8,
-				dim.height / 2 - mapWindow.getSize().height / 2);
+		mapFrame.setLocation(dim.width / 2 - mapFrame.getSize().width / 8,
+				dim.height / 2 - mapFrame.getSize().height / 2);
 
 		// makes the window a fixed size that the user cannot change
-//		mapWindow.setAlwaysOnTop(true);
-		mapWindow.setResizable(false);
+		mapFrame.setAlwaysOnTop(true);
+		mapFrame.setResizable(false);
 		mapPanel.setBackground(Color.WHITE);
-		mapWindow.setVisible(true);
-		mapPanel.setVisible(true);
+		mapFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 	}
+	public void VisibilitySet(Boolean ShowIt) {
+		mapFrame.setVisible(ShowIt);
+		mapPanel.setVisible(ShowIt);
+	}
+	
 //a
 	/**
 	 * 
@@ -232,7 +237,7 @@ public class MapWindow {
 	}
 	
 	public JFrame getWindow () {
-		return this.mapWindow;
+		return this.mapFrame;
 	}
 
 }

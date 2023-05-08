@@ -21,9 +21,6 @@ import javax.swing.JLabel;
  */
 public class SixClosestLocations {
 
-	// Variables
-	private JLabel myClickedLabel;
-	private HashMap<String, ArrayList<Integer>> myCastleMap = MapWindow.castleMap;
 	private HashMap<String, ArrayList<Integer>> myCityMap = MapWindow.cityMap;
 	private HashMap<String, Integer> mySortedMap = new HashMap<String, Integer>();
 	private ArrayList<Integer> myUnsortedDistances = new ArrayList<Integer>();
@@ -31,7 +28,6 @@ public class SixClosestLocations {
 	private ArrayList<String> sixLocations = new ArrayList<String>();
 	private ArrayList<String> globalSix = new ArrayList<String>();
 	private int[][] myCastleCoordinates = MapWindow.castleButtonCoordinates;
-	private int[][] myCityCoordinates = MapWindow.cityButtonCoordinates;
 	private String cityName;
 	private int myLabelX;
 	private int myLabelY;
@@ -42,7 +38,6 @@ public class SixClosestLocations {
 	 * @param myUpdatableLabel A JLabel representing the selected city on the map.
 	 */
 	SixClosestLocations(JLabel myUpdatableLabel) {
-		this.myClickedLabel = myUpdatableLabel;
 		this.cityName = myUpdatableLabel.getText().substring(7);
 
 		String[] cityNames = { "Klaipedos", "Telsiai", "Taurages", "Saiauliai", "Panevezio", "Kauno", "Utenos",

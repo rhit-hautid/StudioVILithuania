@@ -38,7 +38,7 @@ public class Main {
 	 */
 	private void myStartApp() {
 
-		new MyHomePage();
+		new MyHomePage(new JFrame());
 
 	}
 }

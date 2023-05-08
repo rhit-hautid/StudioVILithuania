@@ -46,10 +46,10 @@ public class MyHomePage {
 
 	String[] TopPlaces = new String[6];
 
-	public MyHomePage() {
+	public MyHomePage(JFrame myFrame) {
 
-		JFrame frame = new JFrame(); // creates a new frame
-		JPanel panel = new JPanel(); // creates a new panel
+		this.frame = myFrame;
+		panel = new JPanel(); // creates a new panel
 
 		frame.setSize(FIRST_SCREEN_SIZE);
 		panel.setPreferredSize(FIRST_SCREEN_SIZE);

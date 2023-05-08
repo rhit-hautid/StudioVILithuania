@@ -1,11 +1,14 @@
 package Main;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  * 
@@ -21,8 +24,9 @@ public class ButtonListener extends AbstractButtonListener {
 
 	// Variables
 	String buttonName;
-	Boolean MapCheck = false;
-	MapWindow MapWindowSave;
+	public Boolean MapCheck = false;
+	JFrame Test;
+	MapWindow MapWindowSave = new MapWindow( MyHomePage.updatableLabel);
 
 	/**
 	 * Constructor for ButtonListener class. Calls the constructor of the superclass
@@ -47,7 +51,7 @@ public class ButtonListener extends AbstractButtonListener {
 	public void actionPerformed(ActionEvent e) {
 
 		buttonName = this.getButton().getName();
-
+		
 		JFrame myChangedFrame = this.getMyFrame();
 		JLabel myLabel = MyHomePage.updatableLabel;
 		String myLabelText = MyHomePage.updatableLabel.getText();
@@ -57,11 +61,7 @@ public class ButtonListener extends AbstractButtonListener {
 		// If the "Search" button is clicked
 		// If the "Map" button is clicked
 		if (buttonName.equals("Map")) {
-			if(MapCheck == false) {
-				 
-				MapWindowSave = new MapWindow(myLabel);
-				MapCheck = true;
-			}
+			MapWindowSave.VisibilitySet(true);
 			// TODO: Prevent user from opening multiple MapWindows at a time
 
 		}
@@ -70,18 +70,28 @@ public class ButtonListener extends AbstractButtonListener {
 
 			// Check if a location has been selected
 			if (myLabelText.equals(" None Selected")) {
-				//System.out.println(MapWindowSave.getWindow());
-				//if(MapCheck == true) {
-				JOptionPane.showMessageDialog(myChangedFrame, "No Location Selected, Click Map and Proceed!",
-						"Please Select Your Location!", JOptionPane.ERROR_MESSAGE);
+			
+				JOptionPane pane = new JOptionPane("No Location Selected, Click Map and Proceed!", JOptionPane.WARNING_MESSAGE);
+                JDialog dialog = pane.createDialog("Please Select Your Location!");
+                dialog.setAlwaysOnTop(true);
+                dialog.setModal(false);
+                dialog.setVisible(true);
+
+                // Close the dialog after 3 seconds
+                Timer timer = new Timer(3000, event -> {
+                		dialog.dispose();
+                });
+                
+                timer.setRepeats(false);
+                timer.start();
+                
 				return;
-				//}
 				
 			} else {
+				
 				myChangedFrame.getContentPane().removeAll();
 				myChangedFrame.getContentPane().repaint();
 				new SelectionScreen(myChangedFrame, myLabel);
-
 			}
 
 		}
@@ -99,7 +109,9 @@ public class ButtonListener extends AbstractButtonListener {
 		
 		// If the "Home" button is clicked
 		if (buttonName.equals("Home")) {
-			new MyHomePage();
+			myChangedFrame.getContentPane().removeAll();
+			myChangedFrame.getContentPane().repaint();
+			new MyHomePage(myChangedFrame);
 		}
 
 		if (buttonName.equals("Selection Screen")) {
@@ -127,5 +139,7 @@ public class ButtonListener extends AbstractButtonListener {
 		// Keep Empty For Now
 
 	}
-
+	public void setMapCheck(Boolean mapCheck) {
+		MapCheck = mapCheck;
+	}
 }
