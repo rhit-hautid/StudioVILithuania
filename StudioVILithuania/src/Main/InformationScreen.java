@@ -64,32 +64,9 @@ public class InformationScreen extends AbstractInformationScreen {
 			// Create a new JLabel and set the castleHistory text to it
 			JLabel myDescriptionLabel = new JLabel("<html>" + whatsNearby + gettingAround + restaurants + usefulInformation);
 			myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
-			
 
 			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 			myPanelTwo.add(myDescriptionLabel);
-
-//			// Create a new JLabel and set the castleHistory text to it
-//			JLabel gettingAroundLabel = new JLabel("<html>" + gettingAround);
-//			gettingAroundLabel.setFont(new Font(gettingAroundLabel.getText(), Font.PLAIN, 19));
-//
-//			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-//			myPanelTwo.add(gettingAroundLabel);
-//
-//			// Create a new JLabel and set the castleHistory text to it
-//			JLabel restaurantsLabel = new JLabel("<html>" + restaurants);
-//			restaurantsLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 19));
-//
-//			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-//			myPanelTwo.add(restaurantsLabel);
-		
-
-//			// Create a new JLabel and set the castleHistory text to it
-//			JLabel usefulInformationLabel = new JLabel("<html>" + usefulInformation);
-//			usefulInformationLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 19));
-
-//			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-//			myPanelTwo.add(usefulInformationLabel);
 
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());

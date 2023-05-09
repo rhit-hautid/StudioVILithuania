@@ -26,7 +26,6 @@ public abstract class AbstractInformationScreen {
 	private JPanel myInformationPanel;
 	private JPanel myPanelOne;
 	private JPanel myPanelTwo;
-	private JPanel myPanelThree;
 
 	/**
 	 * Constructor for the InformationScreen class.
@@ -74,9 +73,6 @@ public abstract class AbstractInformationScreen {
 
 		myPanelTwo = new JPanel();
 		myInformationPanel.add(myPanelTwo);
-
-//		myPanelThree = new JPanel();
-//		myInformationPanel.add(myPanelThree);
 
 		SpecificInformationScreen(cityClicked, myPanelOne, myPanelTwo);
 		
