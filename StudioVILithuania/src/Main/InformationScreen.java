@@ -44,7 +44,7 @@ public class InformationScreen extends AbstractInformationScreen {
 		myManyImages.setIcon(myManyImage);
 		myPanelOne.add(myManyImages);
 
-		String fileName = "C:/Users/hautid/git/StudioVILithuania/StudioVILithuania/TextFiles/" + string;
+		String fileName = "StudioVILithuania/TextFiles/" + string;
 
 		try (Scanner reader = new Scanner(new FileReader(fileName))) {
 
