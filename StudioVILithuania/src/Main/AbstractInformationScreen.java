@@ -3,7 +3,10 @@ package Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -23,6 +26,8 @@ public abstract class AbstractInformationScreen {
 	private String cityClicked;
 	private JButton mySelectionButton;
 	private JPanel mySelectionPanel;
+	private JPanel mySelectionPanelTwo;
+	private JPanel mySelectionPanelThree;
 	private JPanel myInformationPanel;
 	private JPanel myPanelOne;
 	private JPanel myPanelTwo;
@@ -43,30 +48,41 @@ public abstract class AbstractInformationScreen {
 		// Color yellow
 		Color myYellow = new Color(245, 224, 143);
 
-		// The panel containing the home button
-		mySelectionPanel = new JPanel();
-		mySelectionPanel.setPreferredSize(new Dimension(1500, 50));
+		JPanel myClearPanel = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.setColor(myYellow);
+				g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
+				g.setColor(Color.GREEN);
+				g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
+				g.setColor(Color.RED);
+				g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
+			}
+		};
+		
+		myClearPanel.setPreferredSize(new Dimension(1500, 75));
+		myFrame.add(myClearPanel, BorderLayout.NORTH);
+		mySelectionButton = new JButton("Selection Screen");
+		mySelectionButton.setName("Selection Screen");
+		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
+		
+		myClearPanel.add(mySelectionButton);
+
+//		
 
 		// The panel containing the location panel
-		myInformationPanel = new JPanel(new GridLayout(1, 2)); // Create a 3 by 3 GridLayout
+		myInformationPanel = new JPanel(new GridLayout(1, 2)); // Create a 1 by 2 GridLayout
 		// Set gaps between cells in the GridLayout
 		myInformationPanel.setLayout(new GridLayout(1, 2, 10, 0)); // Set horizontal and vertical gap to 50 pixels
 		// Set border around the GridLayout
 		myInformationPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Set top, left, bottom, right
 																						// border to 50 pixels
-
-		myInformationPanel.setPreferredSize(new Dimension(1500, 950));
-
-		mySelectionButton = new JButton("Selection Screen");
-		mySelectionButton.setName("Selection Screen");
-		mySelectionPanel.add(mySelectionButton);
-		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
-		myFrame.add(mySelectionPanel);
+		myInformationPanel.setPreferredSize(new Dimension(1500, 880));
+		myInformationPanel.setBounds(0, 200, 1500, 800);
 
 		myFrame.add(myInformationPanel);
 		myInformationPanel.setBackground(Color.WHITE);
-		myFrame.add(mySelectionPanel, BorderLayout.NORTH);
-		mySelectionPanel.setBackground(myYellow);
 
 		myPanelOne = new JPanel();
 		myInformationPanel.add(myPanelOne);
@@ -75,7 +91,7 @@ public abstract class AbstractInformationScreen {
 		myInformationPanel.add(myPanelTwo);
 
 		SpecificInformationScreen(cityClicked, myPanelOne, myPanelTwo);
-		
+
 		myFrame.revalidate();
 		myFrame.repaint();
 	}
