@@ -93,8 +93,7 @@ public class InformationScreen extends AbstractInformationScreen {
 				panel.setSize(FIRST_SCREEN_SIZE);
 				frame.add(panel);
 				frame.setTitle("Additional Information");
-				Color myYellow = new Color(245, 224, 143);
-
+				Color myYellow = new Color(245, 185, 19);
 				panel.setBackground(myYellow);
 
 				// add image of map to the panel

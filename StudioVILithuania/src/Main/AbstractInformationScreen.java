@@ -3,9 +3,11 @@ package Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
@@ -31,6 +33,8 @@ public abstract class AbstractInformationScreen {
 	private JPanel myInformationPanel;
 	private JPanel myPanelOne;
 	private JPanel myPanelTwo;
+	private int MYHEIGHT = 50;
+	private int MYWIDTH = 200;
 
 	/**
 	 * Constructor for the InformationScreen class.
@@ -44,9 +48,11 @@ public abstract class AbstractInformationScreen {
 
 		this.myFrame = myChangedFrame;
 		this.cityClicked = string;
-
+		
 		// Color yellow
-		Color myYellow = new Color(245, 224, 143);
+		Color myYellow = new Color(245, 185, 19);
+		Color myGreen = new Color(0, 106, 68);
+		Color myRed = new Color(193, 39, 45);
 
 		JPanel myClearPanel = new JPanel() {
 			@Override
@@ -54,19 +60,32 @@ public abstract class AbstractInformationScreen {
 				super.paintComponent(g);
 				g.setColor(myYellow);
 				g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
-				g.setColor(Color.GREEN);
+				g.setColor(myGreen);
 				g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
-				g.setColor(Color.RED);
+				g.setColor(myRed);
 				g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
 			}
 		};
 		
+		
+
+		// gives you positioning terms for the computer to reference
+		Insets insets = myClearPanel.getInsets();
+		
+		
 		myClearPanel.setPreferredSize(new Dimension(1500, 75));
 		myFrame.add(myClearPanel, BorderLayout.NORTH);
+		
 		mySelectionButton = new JButton("Selection Screen");
 		mySelectionButton.setName("Selection Screen");
-		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
 		
+		myClearPanel.setLayout(null);
+		
+		mySelectionButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
+		mySelectionButton.setBounds(650 + insets.left, 10 + insets.top, MYWIDTH, MYHEIGHT);
+		mySelectionButton.setVisible(true);
+		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
+
 		myClearPanel.add(mySelectionButton);
 
 //		

@@ -150,7 +150,9 @@ public class MyHomePage {
 		panel.add(jlPic2);
 
 		// Color yellow
-		Color myYellow = new Color(245, 224, 143);
+		Color myYellow = new Color(245, 185, 19);
+		Color myGreen = new Color(0, 106, 68);
+		Color myRed = new Color(193, 39, 45);
 
 		// sets panel to my custom color
 		panel.setBackground(myYellow);

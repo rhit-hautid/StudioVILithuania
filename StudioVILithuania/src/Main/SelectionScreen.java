@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -31,6 +32,8 @@ public class SelectionScreen {
 	private JButton myHomeButton;
 	private JPanel myHomePanel;
 	private JPanel myLocationPanel;
+	private int MYHEIGHT = 50;
+	private int MYWIDTH = 200;
 
 	// Stores the names of the six global locations
 	protected ArrayList<String> mySixLocations = new ArrayList<String>();
@@ -61,7 +64,9 @@ public class SelectionScreen {
 		
 		
 		// Color yellow
-				Color myYellow = new Color(245, 224, 143);
+				Color myYellow = new Color(245, 185, 19);
+				Color myGreen = new Color(0, 106, 68);
+				Color myRed = new Color(193, 39, 45);
 
 				JPanel myHomePanel = new JPanel() {
 					@Override
@@ -69,12 +74,15 @@ public class SelectionScreen {
 						super.paintComponent(g);
 						g.setColor(myYellow);
 						g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
-						g.setColor(Color.GREEN);
+						g.setColor(myGreen);
 						g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
-						g.setColor(Color.RED);
+						g.setColor(myRed);
 						g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
 					}
 				};
+				
+				// gives you positioning terms for the computer to reference
+				Insets insets = myHomePanel.getInsets();
 				
 				myHomePanel.setPreferredSize(new Dimension(1500, 75));
 				myFrame.add(myHomePanel, BorderLayout.NORTH);
@@ -85,7 +93,13 @@ public class SelectionScreen {
 				myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
 				myHomePanel.add(myHomeButton);
 				
+				//Lets you position the button where specifically to a location you choose
+				myHomePanel.setLayout(null);
 				
+				myHomeButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
+				myHomeButton.setBounds(650 + insets.left, 10 + insets.top, MYWIDTH, MYHEIGHT);
+				myHomeButton.setVisible(true);
+				myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
 
 		// The panel containing the location panel
 		myLocationPanel = new JPanel(new GridLayout(2, 3)); // Create a 3 by 3 GridLayout
