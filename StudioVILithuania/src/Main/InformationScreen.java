@@ -84,6 +84,7 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		myAdditionalInformation.addActionListener(new ActionListener() {
 
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
 						
