@@ -61,45 +61,43 @@ public class SelectionScreen {
 		// The name of the clicked city.
 		this.myClickedCityString = myClickedCityLabel.getText().substring(7);
 
-		
-		
 		// Color yellow
-				Color myYellow = new Color(245, 185, 19);
-				Color myGreen = new Color(0, 106, 68);
-				Color myRed = new Color(193, 39, 45);
+		Color myYellow = new Color(245, 185, 19);
+		Color myGreen = new Color(0, 106, 68);
+		Color myRed = new Color(193, 39, 45);
 
-				JPanel myHomePanel = new JPanel() {
-					@Override
-					protected void paintComponent(Graphics g) {
-						super.paintComponent(g);
-						g.setColor(myYellow);
-						g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
-						g.setColor(myGreen);
-						g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
-						g.setColor(myRed);
-						g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
-					}
-				};
-				
-				// gives you positioning terms for the computer to reference
-				Insets insets = myHomePanel.getInsets();
-				
-				myHomePanel.setPreferredSize(new Dimension(1500, 75));
-				myFrame.add(myHomePanel, BorderLayout.NORTH);
-				
-				// The button to return to the home screen.
-				myHomeButton = new JButton("Home");
-				myHomeButton.setName("Home");
-				myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
-				myHomePanel.add(myHomeButton);
-				
-				//Lets you position the button where specifically to a location you choose
-				myHomePanel.setLayout(null);
-				
-				myHomeButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
-				myHomeButton.setBounds(650 + insets.left, 10 + insets.top, MYWIDTH, MYHEIGHT);
-				myHomeButton.setVisible(true);
-				myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
+		JPanel myHomePanel = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.setColor(myYellow);
+				g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
+				g.setColor(myGreen);
+				g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
+				g.setColor(myRed);
+				g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
+			}
+		};
+
+		// gives you positioning terms for the computer to reference
+		Insets insets = myHomePanel.getInsets();
+
+		myHomePanel.setPreferredSize(new Dimension(1500, 75));
+		myFrame.add(myHomePanel, BorderLayout.NORTH);
+
+		// The button to return to the home screen.
+		myHomeButton = new JButton("Home");
+		myHomeButton.setName("Home");
+		myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
+		myHomePanel.add(myHomeButton);
+
+		// Lets you position the button where specifically to a location you choose
+		myHomePanel.setLayout(null);
+
+		myHomeButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
+		myHomeButton.setBounds(650 + insets.left, 10 + insets.top, MYWIDTH, MYHEIGHT);
+		myHomeButton.setVisible(true);
+		myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
 
 		// The panel containing the location panel
 		myLocationPanel = new JPanel(new GridLayout(2, 3)); // Create a 3 by 3 GridLayout
@@ -137,8 +135,7 @@ public class SelectionScreen {
 	 * @param myLocationPanel     The JPanel object on which the JButtons and
 	 *                            JLabels are displayed.
 	 * @param myClickedCityString The name of the user's selected city in a previous
-	 *                            screen.
-	 * sdsd
+	 *                            screen. sdsd
 	 */
 	protected void specificSelectionScreen(JPanel myLocationPanel, String myClickedCityString,
 			ArrayList<String> mySixLocations, JButton[] mySixButtons, JLabel[] mySixLabels) {

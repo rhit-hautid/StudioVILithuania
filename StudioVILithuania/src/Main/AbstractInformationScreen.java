@@ -48,7 +48,7 @@ public abstract class AbstractInformationScreen {
 
 		this.myFrame = myChangedFrame;
 		this.cityClicked = string;
-		
+
 		// Color yellow
 		Color myYellow = new Color(245, 185, 19);
 		Color myGreen = new Color(0, 106, 68);
@@ -66,21 +66,18 @@ public abstract class AbstractInformationScreen {
 				g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
 			}
 		};
-		
-		
 
 		// gives you positioning terms for the computer to reference
 		Insets insets = myClearPanel.getInsets();
-		
-		
+
 		myClearPanel.setPreferredSize(new Dimension(1500, 75));
 		myFrame.add(myClearPanel, BorderLayout.NORTH);
-		
+
 		mySelectionButton = new JButton("Selection Screen");
 		mySelectionButton.setName("Selection Screen");
-		
+
 		myClearPanel.setLayout(null);
-		
+
 		mySelectionButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		mySelectionButton.setBounds(650 + insets.left, 10 + insets.top, MYWIDTH, MYHEIGHT);
 		mySelectionButton.setVisible(true);
