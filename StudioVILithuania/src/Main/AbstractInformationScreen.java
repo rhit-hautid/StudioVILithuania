@@ -3,7 +3,10 @@ package Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -45,25 +48,28 @@ public abstract class AbstractInformationScreen {
 		// Color yellow
 		Color myYellow = new Color(245, 224, 143);
 
-		// The panel containing the home button
-		mySelectionPanel = new JPanel();
-		mySelectionPanel.setPreferredSize(new Dimension(1500, (int) 16.6667));
-		mySelectionPanelTwo = new JPanel();
-		mySelectionPanelTwo.setPreferredSize(new Dimension(1500, (int) 16.6667));
-		mySelectionPanelThree = new JPanel();
-		mySelectionPanelThree.setPreferredSize(new Dimension(1500, (int) 16.6667));
-
-		mySelectionPanel.setBackground(myYellow);
-		mySelectionPanelTwo.setBackground(Color.GREEN);
-		mySelectionPanelThree.setBackground(Color.RED);
-
-		JPanel myFlagPanel = new JPanel(new GridLayout(3, 1));
-		myFlagPanel.add(mySelectionPanel);
-		myFlagPanel.add(mySelectionPanelTwo);
-		myFlagPanel.add(mySelectionPanelThree);
-		myFrame.getContentPane().add(myFlagPanel, BorderLayout.NORTH);
+		JPanel myClearPanel = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.setColor(myYellow);
+				g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
+				g.setColor(Color.GREEN);
+				g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
+				g.setColor(Color.RED);
+				g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
+			}
+		};
 		
+		myClearPanel.setPreferredSize(new Dimension(1500, 75));
+		myFrame.add(myClearPanel, BorderLayout.NORTH);
+		mySelectionButton = new JButton("Selection Screen");
+		mySelectionButton.setName("Selection Screen");
+		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
+		
+		myClearPanel.add(mySelectionButton);
 
+//		
 
 		// The panel containing the location panel
 		myInformationPanel = new JPanel(new GridLayout(1, 2)); // Create a 1 by 2 GridLayout
@@ -74,11 +80,6 @@ public abstract class AbstractInformationScreen {
 																						// border to 50 pixels
 		myInformationPanel.setPreferredSize(new Dimension(1500, 880));
 		myInformationPanel.setBounds(0, 200, 1500, 800);
-
-		mySelectionButton = new JButton("Selection Screen");
-		mySelectionButton.setName("Selection Screen");
-		mySelectionPanel.add(mySelectionButton);
-		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
 
 		myFrame.add(myInformationPanel);
 		myInformationPanel.setBackground(Color.WHITE);

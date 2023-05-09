@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -60,9 +61,34 @@ public class SelectionScreen {
 		// The name of the clicked city.
 		this.myClickedCityString = myClickedCityLabel.getText().substring(7);
 
-		// The panel containing the home button
-		myHomePanel = new JPanel();
-		myHomePanel.setPreferredSize(new Dimension(1500, 50));
+		
+		
+		// Color yellow
+				Color myYellow = new Color(245, 224, 143);
+
+				JPanel myHomePanel = new JPanel() {
+					@Override
+					protected void paintComponent(Graphics g) {
+						super.paintComponent(g);
+						g.setColor(myYellow);
+						g.fillRect(0, 0, myFrame.getWidth(), 25); // left half
+						g.setColor(Color.GREEN);
+						g.fillRect(0, 25, myFrame.getWidth(), 50); // right half
+						g.setColor(Color.RED);
+						g.fillRect(0, 50, myFrame.getWidth(), 75); // right half
+					}
+				};
+				
+				myHomePanel.setPreferredSize(new Dimension(1500, 75));
+				myFrame.add(myHomePanel, BorderLayout.NORTH);
+				
+				// The button to return to the home screen.
+				myHomeButton = new JButton("Home");
+				myHomeButton.setName("Home");
+				myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
+				myHomePanel.add(myHomeButton);
+				
+				
 
 		// The panel containing the location panel
 		myLocationPanel = new JPanel(new GridLayout(2, 3)); // Create a 3 by 3 GridLayout
@@ -73,15 +99,6 @@ public class SelectionScreen {
 																					// border to 50 pixels
 
 		myLocationPanel.setPreferredSize(new Dimension(1500, 950));
-
-		// The button to return to the home screen.
-		myHomeButton = new JButton("Home");
-		myHomeButton.setName("Home");
-		myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
-		myHomePanel.add(myHomeButton);
-
-		// Color blue
-		Color myYellow = new Color(245, 224, 143);
 
 		myLocationPanel.setBackground(myYellow);
 
