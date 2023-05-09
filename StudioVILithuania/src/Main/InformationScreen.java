@@ -25,7 +25,7 @@ import javax.swing.JPanel;
 
 public class InformationScreen extends AbstractInformationScreen {
 
-	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(850,525);
+	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(850, 525);
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
 		super(myChangedFrame, string);
@@ -34,7 +34,6 @@ public class InformationScreen extends AbstractInformationScreen {
 
 	@Override
 	public void SpecificInformationScreen(String string, JPanel myPanelOne, JPanel myPanelTwo) {
-
 		JButton myManyImages = new JButton();
 		myManyImages.setPreferredSize(new Dimension(720, 400));
 
@@ -45,11 +44,64 @@ public class InformationScreen extends AbstractInformationScreen {
 		myManyImages.setIcon(myManyImage);
 		myPanelOne.add(myManyImages);
 
+		String fileName = "C:/Users/hautid/git/StudioVILithuania/StudioVILithuania/TextFiles/" + string;
+
+		try (Scanner reader = new Scanner(new FileReader(fileName))) {
+
+			String castleHistory = reader.nextLine();
+			String whatsNearby = reader.nextLine();
+			String gettingAround = reader.nextLine();
+			String restaurants = reader.nextLine();
+			String usefulInformation = reader.nextLine();
+
+			// Create a new JLabel and set the castleHistory text to it
+			JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
+			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 19));
+
+			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+			myPanelOne.add(castleHistoryLabel);
+
+			// Create a new JLabel and set the castleHistory text to it
+			JLabel myDescriptionLabel = new JLabel("<html>" + whatsNearby + gettingAround + restaurants + usefulInformation);
+			myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
+			
+
+			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+			myPanelTwo.add(myDescriptionLabel);
+
+//			// Create a new JLabel and set the castleHistory text to it
+//			JLabel gettingAroundLabel = new JLabel("<html>" + gettingAround);
+//			gettingAroundLabel.setFont(new Font(gettingAroundLabel.getText(), Font.PLAIN, 19));
+//
+//			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+//			myPanelTwo.add(gettingAroundLabel);
+//
+//			// Create a new JLabel and set the castleHistory text to it
+//			JLabel restaurantsLabel = new JLabel("<html>" + restaurants);
+//			restaurantsLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 19));
+//
+//			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+//			myPanelTwo.add(restaurantsLabel);
+		
+
+//			// Create a new JLabel and set the castleHistory text to it
+//			JLabel usefulInformationLabel = new JLabel("<html>" + usefulInformation);
+//			usefulInformationLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 19));
+
+//			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+//			myPanelTwo.add(usefulInformationLabel);
+
+		} catch (IOException e) {
+			System.out.println("Error reading file: " + e.getMessage());
+		}
+
+		// Use the variables CastleHistory, WhatsNearby, GettingAround, Restaurants as
+		// needed.
+
 		JButton myAdditionalInformation = new JButton("More Info About " + string);
 		myAdditionalInformation.setName("MoreInfo");
 		myPanelTwo.add(myAdditionalInformation);
 
-		
 		myAdditionalInformation.addActionListener(new ActionListener() {
 
 			@Override
@@ -65,12 +117,11 @@ public class InformationScreen extends AbstractInformationScreen {
 
 				panel.setBackground(myYellow);
 
-				
 				// add image of map to the panel
 				ImageIcon myAddInfo = new ImageIcon("StudioVILithuania/AdditionalInformation/" + string + ".PNG");
 				JLabel jlPic = new JLabel(myAddInfo);
 				panel.add(jlPic, BorderLayout.CENTER);
-				
+
 				// moves the mapWindow to appear on the right side of the screen
 				Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 				frame.setLocation(dim.width / 2 - frame.getSize().width / 8,
@@ -82,58 +133,5 @@ public class InformationScreen extends AbstractInformationScreen {
 			}
 		});
 
-		
-		String fileName = "C:/Users/hautid/git/StudioVILithuania/StudioVILithuania/TextFiles/" + string;
-		
-
-		try (Scanner reader = new Scanner(new FileReader(fileName))) {
-
-			String castleHistory = reader.nextLine();
-			String whatsNearby = reader.nextLine();
-			String gettingAround = reader.nextLine();
-			String restaurants = reader.nextLine();
-			String usefulInformation = reader.nextLine();
-
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
-			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 20));
-
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelOne.add(castleHistoryLabel);
-
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel whatsNearbyLabel = new JLabel("<html>" + whatsNearby);
-			whatsNearbyLabel.setFont(new Font(whatsNearbyLabel.getText(), Font.PLAIN, 20));
-
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelTwo.add(whatsNearbyLabel);
-
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel gettingAroundLabel = new JLabel("<html>" + gettingAround);
-			gettingAroundLabel.setFont(new Font(gettingAroundLabel.getText(), Font.PLAIN, 20));
-
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelTwo.add(gettingAroundLabel);
-
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel restaurantsLabel = new JLabel("<html>" + restaurants);
-			restaurantsLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 20));
-
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelTwo.add(restaurantsLabel);
-
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel usefulInformationLabel = new JLabel("<html>" + usefulInformation);
-			usefulInformationLabel.setFont(new Font(restaurantsLabel.getText(), Font.PLAIN, 20));
-
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelTwo.add(usefulInformationLabel);
-
-		} catch (IOException e) {
-			System.out.println("Error reading file: " + e.getMessage());
-		}
-
-		// Use the variables CastleHistory, WhatsNearby, GettingAround, Restaurants as
-		// needed.
 	}
 }
