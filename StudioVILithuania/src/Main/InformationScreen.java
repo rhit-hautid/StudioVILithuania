@@ -26,6 +26,9 @@ import javax.swing.JPanel;
 public class InformationScreen extends AbstractInformationScreen {
 
 	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(850, 525);
+	JFrame frame = new JFrame();// creates a new frame
+	JPanel panel = new JPanel(); // creates a new panel
+	
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
 		super(myChangedFrame, string);
@@ -83,9 +86,8 @@ public class InformationScreen extends AbstractInformationScreen {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame frame = new JFrame(); // creates a new frame
-				JPanel panel = new JPanel(); // creates a new panel
-
+						
+				
 				frame.setSize(FIRST_SCREEN_SIZE);
 				panel.setSize(FIRST_SCREEN_SIZE);
 				frame.add(panel);
@@ -103,12 +105,23 @@ public class InformationScreen extends AbstractInformationScreen {
 				Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 				frame.setLocation(dim.width / 2 - frame.getSize().width / 8,
 						dim.height / 2 - frame.getSize().height / 2);
-
+				
+				setVisabillity(true);
 				frame.setVisible(true);
 				frame.setResizable(false);
-
+				
 			}
 		});
 
+	}
+	public void setVisabillity(Boolean source) {
+		frame.setVisible(source);
+	}
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }

@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
@@ -27,7 +28,8 @@ public class ButtonListener extends AbstractButtonListener {
 	public Boolean MapCheck = false;
 	JFrame Test;
 	MapWindow MapWindowSave = new MapWindow( MyHomePage.updatableLabel);
-
+	//SpecificInformationScreen AdditionalInfo = new SpecificInformationScreen(cityClicked, new JPanel(), new JPanel());
+	//SpecificInformationScreen SaveIt = new SpecificInformationScreen();
 	/**
 	 * Constructor for ButtonListener class. Calls the constructor of the superclass
 	 * (AbstractButtonListener) to initialize the variables.
@@ -115,6 +117,8 @@ public class ButtonListener extends AbstractButtonListener {
 		}
 
 		if (buttonName.equals("Selection Screen")) {
+			
+			
 			myChangedFrame.getContentPane().removeAll();
 			new SelectionScreen(myChangedFrame, myLabel);
 		}
@@ -124,7 +128,7 @@ public class ButtonListener extends AbstractButtonListener {
 			myChangedFrame.getContentPane().repaint();
 
 		}
-
+		
 	}
 
 	/**

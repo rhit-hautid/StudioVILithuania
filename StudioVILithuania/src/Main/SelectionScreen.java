@@ -26,8 +26,6 @@ import javax.swing.JPanel;
 public class SelectionScreen {
 
 	private JFrame myFrame;
-	private JPanel myGridLayoutPanel;
-	private JLabel myClickedCityLabel;
 	private String myClickedCityString;
 	private JButton myHomeButton;
 	private JPanel myHomePanel;
@@ -56,7 +54,6 @@ public class SelectionScreen {
 	public SelectionScreen(JFrame myFrame, JLabel myClickedCityLabel) {
 
 		this.myFrame = myFrame;
-		this.myClickedCityLabel = myClickedCityLabel;
 		// The name of the clicked city.
 		this.myClickedCityString = myClickedCityLabel.getText().substring(7);
 
