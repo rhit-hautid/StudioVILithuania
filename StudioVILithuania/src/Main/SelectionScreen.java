@@ -107,7 +107,7 @@ public class SelectionScreen {
 	 *                            JLabels are displayed.
 	 * @param myClickedCityString The name of the user's selected city in a previous
 	 *                            screen.
-	 * 
+	 * sdsd
 	 */
 	protected void specificSelectionScreen(JPanel myLocationPanel, String myClickedCityString,
 			ArrayList<String> mySixLocations, JButton[] mySixButtons, JLabel[] mySixLabels) {
