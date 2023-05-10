@@ -146,18 +146,16 @@ public class MyHomePage {
 		ImageIcon CastleHome = new ImageIcon("StudioVILithuania/HomePageImages/CastleHomePage.PNG");
 		JLabel jlPic2 = new JLabel(CastleHome);
 		Dimension sizeSix = jlPic2.getPreferredSize();
-		jlPic2.setBounds(280 + insets.left, -33 + insets.bottom, sizeSix.width, 200 + sizeSix.height);
+		jlPic2.setBounds(330 + insets.left, 6 + insets.bottom, sizeSix.width, 200 + sizeSix.height);
 		panel.add(jlPic2);
 
 		// Color yellow
 		Color myYellow = new Color(245, 185, 19);
-		Color myGreen = new Color(0, 106, 68);
-		Color myRed = new Color(193, 39, 45);
 
 		// sets panel to my custom color
 		panel.setBackground(myYellow);
 		// makes frame visible
-		//device.setFullScreenWindow(frame);
+		// device.setFullScreenWindow(frame);
 		frame.setVisible(true);
 
 	}
