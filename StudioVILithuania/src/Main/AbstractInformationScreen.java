@@ -85,7 +85,7 @@ public abstract class AbstractInformationScreen {
 
 		myClearPanel.add(mySelectionButton);
 
-//		
+//		Hello Please Send
 
 		// The panel containing the location panel
 		myInformationPanel = new JPanel(new GridLayout(1, 2)); // Create a 1 by 2 GridLayout
