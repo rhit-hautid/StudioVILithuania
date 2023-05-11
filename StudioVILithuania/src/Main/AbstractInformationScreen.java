@@ -71,10 +71,13 @@ public abstract class AbstractInformationScreen {
 		myClearPanel.setPreferredSize(new Dimension(1500, 75));
 		myFrame.add(myClearPanel, BorderLayout.NORTH);
 
+		// The button to return to the selection screen.
+		// changes the language of my go back to selection screen button
+		// depending on if Lithuanian or English Language was chosen
 		if (pickedLanguage.equals("Lithuanian")) {
-			mySelectionButton = new JButton("Pasirinkimo Ekranas");
+			mySelectionButton = new JButton("Grįžk Atgalas");
 		} else {
-			mySelectionButton = new JButton("Selection Screen");
+			mySelectionButton = new JButton("Go Back");
 		}
 
 		mySelectionButton.setName("Selection Screen");

@@ -156,7 +156,7 @@ public class MapWindow {
 					for (int i = 0; i < cityNames.length; i++) {
 						if (e.getSource().toString().contains(cityNames[i])) {
 							setSaveCastleChosen(cityNames[i]);
-							label.setText(" City: " + cityNames[i]);
+							label.setText(" " + cityNames[i]);
 							mapFrame.dispose();
 						}
 					}

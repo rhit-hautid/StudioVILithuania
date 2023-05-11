@@ -34,6 +34,7 @@ public class InformationScreen extends AbstractInformationScreen {
 	String whatsNearby;
 	String gettingAround;
 	String restaurants;
+	
 	String usefulInformation;
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
@@ -88,7 +89,6 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		// Create a new JLabel and set the castleHistory text to it
 		JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
-		castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 19));
 
 		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 		myPanelOne.add(castleHistoryLabel);
@@ -96,23 +96,26 @@ public class InformationScreen extends AbstractInformationScreen {
 		// Create a new JLabel and set the castleHistory text to it
 		JLabel myDescriptionLabel = new JLabel(
 				"<html>" + whatsNearby + gettingAround + restaurants + usefulInformation);
-		myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
 
 		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 		myPanelTwo.add(myDescriptionLabel);
 
-		// Use the variables CastleHistory, WhatsNearby, GettingAround, Restaurants as
-		// needed.
-
+		// changes the language of my additional information button and the font size
+		// depending on if Lithuanian or English Language
 		if (pickedLanguage.equals("Lithuanian")) {
 			myAdditionalInformation = new JButton("Daugiau Informacijos Apie " + string);
+			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 18));
+			myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 18));
 
 		} else {
 			myAdditionalInformation = new JButton("More Info About " + string);
+			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 19));
+			myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
 
 		}
 
 		myAdditionalInformation.setName("MoreInfo");
+
 		myAdditionalInformation.addActionListener(new ActionListener() {
 
 			@Override
@@ -122,6 +125,8 @@ public class InformationScreen extends AbstractInformationScreen {
 				panel.setSize(FIRST_SCREEN_SIZE);
 				frame.add(panel);
 
+				// changes the language of my additional information window
+				// depending on if Lithuanian or English Language was chosen
 				if (pickedLanguage.equals("Lithuanian")) {
 					frame.setTitle("Papildoma Informacija");
 				} else {

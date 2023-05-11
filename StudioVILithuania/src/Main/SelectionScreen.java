@@ -30,7 +30,7 @@ public class SelectionScreen {
 	private JFrame myFrame;
 	private String myClickedCityString;
 	private JButton myHomeButton;
-	private JPanel myHomePanel;
+
 	private JPanel myLocationPanel;
 	private int MYHEIGHT = 50;
 	private int MYWIDTH = 200;
@@ -87,11 +87,11 @@ public class SelectionScreen {
 		myFrame.add(myHomePanel, BorderLayout.NORTH);
 
 		// The button to return to the home screen.
-		
+		// changes the language of my home button
+		// depending on if Lithuanian or English Language was chosen
 		if (pickedLanguage.equals("Lithuanian")) {
 			myHomeButton = new JButton("Namai");
-		}
-		else {
+		} else {
 			myHomeButton = new JButton("Home");
 		}
 		myHomeButton.setName("Home");
