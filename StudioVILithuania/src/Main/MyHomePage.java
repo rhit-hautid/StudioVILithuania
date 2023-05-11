@@ -45,6 +45,8 @@ public class MyHomePage {
 	private final String[] choicesTwo = new String[5];
 	private final JLabel labelTwo = new JLabel("Come here to explore the beautiful castles of Lithuania");
 	private final JLabel label = new JLabel("Find A Place To Visit");
+	private final JLabel labelThree = new JLabel();
+
 
 	String[] TopPlaces = new String[6];
 
@@ -74,6 +76,12 @@ public class MyHomePage {
 		panel.add(labelTwo);
 		labelTwo.setFont(new Font("American Typewriter", Font.BOLD, 15));
 
+		// code for my Title
+		labelThree.setPreferredSize(new Dimension(700, 70));
+		Dimension sizeTen = labelThree.getPreferredSize();
+		panel.add(labelThree);
+		labelThree.setFont(new Font("American Typewriter", Font.BOLD, 45));
+
 		if (pickedLanguage.equals("Lithuanian")) {
 			frame.setTitle("Lietuvos Kelionių Programa");
 			choices[0] = "Vieta";
@@ -92,8 +100,11 @@ public class MyHomePage {
 			mapButton.setText("Žemėlapis");
 			labelTwo.setText("Ateikite čia ir ištyrinkite gražias Lietuvos pilis");
 			label.setText("Suraskite vietą, kurią norite aplankyti");
-			label.setBounds(235 + insets.left, 140 + insets.bottom, sizeSeven.width, sizeSeven.height);
-			labelTwo.setBounds(233 + insets.left, 180 + insets.bottom, sizeEight.width, sizeEight.height);
+		
+			labelThree.setText("Atraskite Lietuvą");
+			label.setBounds(235 + insets.left, 140 + 8 + insets.bottom, sizeSeven.width, sizeSeven.height);
+			labelTwo.setBounds(233 + insets.left, 180 + 8 + insets.bottom, sizeEight.width, sizeEight.height);
+			labelThree.setBounds(12 + insets.left, 140 + insets.top, sizeTen.width, sizeTen.height);
 			labelTwo.setFont(new Font("American Typewriter", Font.BOLD, 17));
 
 		}
@@ -112,8 +123,11 @@ public class MyHomePage {
 			choicesTwo[4] = "Group";
 
 			updatableLabel.setText(" Click Map");
-			label.setBounds(305 + insets.left, 140 + insets.bottom, sizeSeven.width, sizeSeven.height);
-			labelTwo.setBounds(210 + insets.left, 180 + insets.bottom, sizeEight.width, sizeEight.height);
+			labelThree.setText("Discover Lithuania");
+			label.setBounds(305 + insets.left, 140 + 8 + insets.bottom, sizeSeven.width, sizeSeven.height);
+			labelTwo.setBounds(210 + insets.left, 180 + 8 + insets.bottom, sizeEight.width, sizeEight.height);
+			labelThree.setBounds(590 + insets.left, 20 + insets.top, sizeTen.width, sizeTen.height);
+
 		}
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,7 +137,7 @@ public class MyHomePage {
 		dropDownButton.setPreferredSize(new Dimension(400, 70));
 		dropDownButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		Dimension sizeTwo = dropDownButton.getPreferredSize();
-		dropDownButton.setBounds(215 + insets.left, 275 + insets.bottom, sizeTwo.width, sizeTwo.height);
+		dropDownButton.setBounds(215 + insets.left, 275 + 10 + insets.bottom, sizeTwo.width, sizeTwo.height);
 		dropDownButton.setVisible(true);
 		panel.add(dropDownButton);
 
@@ -133,7 +147,7 @@ public class MyHomePage {
 		dropDownButtonTwo.setPreferredSize(new Dimension(400, 70));
 		dropDownButtonTwo.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		Dimension sizeThree = dropDownButtonTwo.getPreferredSize();
-		dropDownButtonTwo.setBounds(215 + insets.left, 375 + insets.bottom, sizeThree.width, sizeThree.height);
+		dropDownButtonTwo.setBounds(215 + insets.left, 375 + 10 + insets.bottom, sizeThree.width, sizeThree.height);
 		dropDownButtonTwo.setVisible(true);
 		panel.add(dropDownButtonTwo);
 
@@ -148,7 +162,7 @@ public class MyHomePage {
 		updatableLabel.setPreferredSize(new Dimension(200, 70));
 		Dimension sizeFour = updatableLabel.getPreferredSize();
 
-		updatableLabel.setBounds(215 + insets.left, 475 + insets.bottom, sizeFour.width, sizeFour.height);
+		updatableLabel.setBounds(215 + insets.left, 475 + 10 + insets.bottom, sizeFour.width, sizeFour.height);
 		updatableLabel.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		updatableLabel.setVisible(true);
 		panel.add(updatableLabel);
@@ -161,7 +175,7 @@ public class MyHomePage {
 		frame.add(panel, BorderLayout.NORTH);
 		searchButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		Dimension sizeFive = searchButton.getPreferredSize();
-		searchButton.setBounds(215 + insets.left, 575 + insets.bottom, sizeFive.width, sizeFive.height);
+		searchButton.setBounds(215 + insets.left, 575 + 10 + insets.bottom, sizeFive.width, sizeFive.height);
 		panel.add(searchButton);
 
 		// code for map button
@@ -170,14 +184,14 @@ public class MyHomePage {
 		mapButton.setName("Map");
 		mapButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		Dimension sizeNine = mapButton.getPreferredSize();
-		mapButton.setBounds(425 + insets.left, 475 + insets.bottom, sizeNine.width, sizeNine.height);
+		mapButton.setBounds(425 + insets.left, 475 + 10 + insets.bottom, sizeNine.width, sizeNine.height);
 		panel.add(mapButton);
 
 		// code to put white square image on the window
 		ImageIcon mySquare = new ImageIcon("StudioVILithuania/HomePageImages/MySquare.PNG");
 		JLabel jlPic = new JLabel(mySquare);
 		Dimension size = jlPic.getPreferredSize();
-		jlPic.setBounds(155 + insets.left, 125 + insets.bottom, size.width, size.height);
+		jlPic.setBounds(155 + insets.left, 133 + insets.bottom, size.width, size.height);
 		panel.add(jlPic);
 
 		// code to put castle image on the window
