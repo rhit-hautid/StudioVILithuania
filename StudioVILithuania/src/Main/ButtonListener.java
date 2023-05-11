@@ -71,7 +71,7 @@ public class ButtonListener extends AbstractButtonListener {
 		if (buttonName.equals("Search")) {
 
 			// Check if a location has been selected
-			if (myLabelText.equals(" None Selected")) {
+			if (myLabelText.equals(" Click Map")) {
 
 				JOptionPane pane = new JOptionPane("No Location Selected, Click Map and Proceed!",
 						JOptionPane.WARNING_MESSAGE);
@@ -90,7 +90,7 @@ public class ButtonListener extends AbstractButtonListener {
 				timer.start();
 
 				return;
-			} else if (myLabelText.equals(" Nepasirinkta")) {
+			} else if (myLabelText.equals(" Žemėlapis")) {
 
 				JOptionPane pane = new JOptionPane("Vietovės Nepasirinkta, Spustelėkite Žemėlapį ir Tęskite!",
 						JOptionPane.WARNING_MESSAGE);
