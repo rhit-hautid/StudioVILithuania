@@ -185,7 +185,7 @@ public class MapWindow {
 
 		// moves the mapWindow to appear on the right side of the screen
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		mapFrame.setLocation(dim.width / 2 - mapFrame.getSize().width / 8,
+		mapFrame.setLocation(dim.width / 2 - mapFrame.getSize().width / 9,
 				dim.height / 2 - mapFrame.getSize().height / 2);
 
 		// makes the window a fixed size that the user cannot change
