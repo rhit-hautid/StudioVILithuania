@@ -41,6 +41,7 @@ public class SelectionScreen {
 	private JButton[] mySixButtons = new JButton[6];
 	// Stores the six JLabels dynamically created for the six global locations
 	private JLabel[] mySixLabels = new JLabel[6];
+	public static String pickedLanguage = Main.pickedLanguage;
 
 	/**
 	 * Constructs a SelectionScreen object with a JFrame and a JLabel representing
@@ -86,7 +87,13 @@ public class SelectionScreen {
 		myFrame.add(myHomePanel, BorderLayout.NORTH);
 
 		// The button to return to the home screen.
-		myHomeButton = new JButton("Home");
+		
+		if (pickedLanguage.equals("Lithuanian")) {
+			myHomeButton = new JButton("Namai");
+		}
+		else {
+			myHomeButton = new JButton("Home");
+		}
 		myHomeButton.setName("Home");
 		myHomeButton.addActionListener(new ButtonListener(myHomeButton, myFrame));
 		myHomePanel.add(myHomeButton);

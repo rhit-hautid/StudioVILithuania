@@ -27,14 +27,12 @@ public abstract class AbstractInformationScreen {
 	protected JFrame myFrame;
 	private String cityClicked;
 	private JButton mySelectionButton;
-	private JPanel mySelectionPanel;
-	private JPanel mySelectionPanelTwo;
-	private JPanel mySelectionPanelThree;
 	private JPanel myInformationPanel;
 	private JPanel myPanelOne;
 	private JPanel myPanelTwo;
 	private int MYHEIGHT = 50;
 	private int MYWIDTH = 200;
+	public static String pickedLanguage = Main.pickedLanguage;
 
 	/**
 	 * Constructor for the InformationScreen class.
@@ -73,7 +71,12 @@ public abstract class AbstractInformationScreen {
 		myClearPanel.setPreferredSize(new Dimension(1500, 75));
 		myFrame.add(myClearPanel, BorderLayout.NORTH);
 
-		mySelectionButton = new JButton("Selection Screen");
+		if (pickedLanguage.equals("Lithuanian")) {
+			mySelectionButton = new JButton("Pasirinkimo Ekranas");
+		} else {
+			mySelectionButton = new JButton("Selection Screen");
+		}
+
 		mySelectionButton.setName("Selection Screen");
 
 		myClearPanel.setLayout(null);

@@ -2,6 +2,7 @@ package Main;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,6 +19,8 @@ public class Main {
 	 * displayed when the application is started.
 	 */
 	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(1500, 1000);
+	private static final String[] LANGUAGES = {"English", "Lithuanian"};
+	protected static String pickedLanguage;
 
 	/**
 	 * The main() method is the entry point of the application. It instantiates the
@@ -26,10 +29,10 @@ public class Main {
 	 * @param args the command line arguments (not used in this application)
 	 */
 	public static void main(String[] args) {
-
 		Main myMainPage = new Main();
 		myMainPage.myStartApp();
 
+		
 	}
 
 	/**
@@ -38,6 +41,7 @@ public class Main {
 	 */
 	private void myStartApp() {
 
+		pickedLanguage = (String) JOptionPane.showInputDialog(null, "Please select a languge:", "Language Option", JOptionPane.PLAIN_MESSAGE, null, LANGUAGES, LANGUAGES[0]);
 		new MyHomePage(new JFrame());
 
 	}

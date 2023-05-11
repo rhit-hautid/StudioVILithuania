@@ -32,6 +32,7 @@ public class MapWindow {
 	public static HashMap<String, ArrayList<Integer>> cityMap = new HashMap<String, ArrayList<Integer>>();
 	// An ArrayList containing the names of six locations on the map.
 	public ArrayList<String> sixLocations = new ArrayList<String>();
+	public static String pickedLanguage = Main.pickedLanguage;
 	JFrame mapFrame;
 	JPanel mapPanel;
 	JLabel label;
@@ -79,7 +80,12 @@ public class MapWindow {
 	public MapWindow(JLabel updateableLabel) {
 		this.label = updateableLabel;
 
-		this.mapFrame = new JFrame("Map Window");
+		if (pickedLanguage.equals("Lithuanian")) {
+			this.mapFrame = new JFrame("Žemėlapio Langas");
+		} else {
+			this.mapFrame = new JFrame("Map Window");
+		}
+
 		this.mapPanel = new JPanel();
 		mapPanel.setLayout(null);
 		mapFrame.add(mapPanel);
@@ -189,11 +195,12 @@ public class MapWindow {
 		mapFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 	}
+
 	public void VisibilitySet(Boolean ShowIt) {
 		mapFrame.setVisible(ShowIt);
 		mapPanel.setVisible(ShowIt);
 	}
-	
+
 //a
 	/**
 	 * 
@@ -235,8 +242,8 @@ public class MapWindow {
 	public void setLabel(JLabel label) {
 		this.label = label;
 	}
-	
-	public JFrame getWindow () {
+
+	public JFrame getWindow() {
 		return this.mapFrame;
 	}
 

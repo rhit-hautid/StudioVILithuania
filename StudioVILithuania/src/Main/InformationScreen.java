@@ -28,11 +28,16 @@ public class InformationScreen extends AbstractInformationScreen {
 	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(850, 525);
 	JFrame frame = new JFrame();// creates a new frame
 	JPanel panel = new JPanel(); // creates a new panel
-	
+	JButton myAdditionalInformation;
+	public static String pickedLanguage = Main.pickedLanguage;
+	String castleHistory;
+	String whatsNearby;
+	String gettingAround;
+	String restaurants;
+	String usefulInformation;
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
 		super(myChangedFrame, string);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -49,50 +54,80 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		String fileName = "StudioVILithuania/TextFiles/" + string;
 
-		try (Scanner reader = new Scanner(new FileReader(fileName))) {
+		if (pickedLanguage.equals("Lithuanian")) {
+			try (Scanner reader = new Scanner(new FileReader(fileName))) {
 
-			String castleHistory = reader.nextLine();
-			String whatsNearby = reader.nextLine();
-			String gettingAround = reader.nextLine();
-			String restaurants = reader.nextLine();
-			String usefulInformation = reader.nextLine();
+				for (int i = 0; i < 6; i++) {
+					reader.nextLine();
+				}
 
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
-			castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 19));
+				castleHistory = reader.nextLine();
+				whatsNearby = reader.nextLine();
+				gettingAround = reader.nextLine();
+				restaurants = reader.nextLine();
+				usefulInformation = reader.nextLine();
 
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelOne.add(castleHistoryLabel);
-
-			// Create a new JLabel and set the castleHistory text to it
-			JLabel myDescriptionLabel = new JLabel("<html>" + whatsNearby + gettingAround + restaurants + usefulInformation);
-			myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
-
-			// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
-			myPanelTwo.add(myDescriptionLabel);
-
-		} catch (IOException e) {
-			System.out.println("Error reading file: " + e.getMessage());
+			} catch (IOException e) {
+				System.out.println("Error reading file: " + e.getMessage());
+			}
 		}
+
+		else {
+			try (Scanner reader = new Scanner(new FileReader(fileName))) {
+
+				castleHistory = reader.nextLine();
+				whatsNearby = reader.nextLine();
+				gettingAround = reader.nextLine();
+				restaurants = reader.nextLine();
+				usefulInformation = reader.nextLine();
+
+			} catch (IOException e) {
+				System.out.println("Error reading file: " + e.getMessage());
+			}
+		}
+
+		// Create a new JLabel and set the castleHistory text to it
+		JLabel castleHistoryLabel = new JLabel("<html>" + castleHistory);
+		castleHistoryLabel.setFont(new Font(castleHistoryLabel.getText(), Font.PLAIN, 19));
+
+		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+		myPanelOne.add(castleHistoryLabel);
+
+		// Create a new JLabel and set the castleHistory text to it
+		JLabel myDescriptionLabel = new JLabel(
+				"<html>" + whatsNearby + gettingAround + restaurants + usefulInformation);
+		myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
+
+		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
+		myPanelTwo.add(myDescriptionLabel);
 
 		// Use the variables CastleHistory, WhatsNearby, GettingAround, Restaurants as
 		// needed.
 
-		JButton myAdditionalInformation = new JButton("More Info About " + string);
-		myAdditionalInformation.setName("MoreInfo");
-		myPanelTwo.add(myAdditionalInformation);
+		if (pickedLanguage.equals("Lithuanian")) {
+			myAdditionalInformation = new JButton("Daugiau Informacijos Apie " + string);
 
+		} else {
+			myAdditionalInformation = new JButton("More Info About " + string);
+
+		}
+
+		myAdditionalInformation.setName("MoreInfo");
 		myAdditionalInformation.addActionListener(new ActionListener() {
 
-		
 			@Override
 			public void actionPerformed(ActionEvent e) {
-						
-				
+
 				frame.setSize(FIRST_SCREEN_SIZE);
 				panel.setSize(FIRST_SCREEN_SIZE);
 				frame.add(panel);
-				frame.setTitle("Additional Information");
+
+				if (pickedLanguage.equals("Lithuanian")) {
+					frame.setTitle("Papildoma Informacija");
+				} else {
+					frame.setTitle("Additional Information");
+				}
+
 				Color myYellow = new Color(245, 185, 19);
 				panel.setBackground(myYellow);
 
@@ -105,18 +140,21 @@ public class InformationScreen extends AbstractInformationScreen {
 				Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 				frame.setLocation(dim.width / 2 - frame.getSize().width / 8,
 						dim.height / 2 - frame.getSize().height / 2);
-				
+
 				setVisabillity(true);
 				frame.setVisible(true);
 				frame.setResizable(false);
-				
+
 			}
 		});
 
+		myPanelTwo.add(myAdditionalInformation);
 	}
+
 	public void setVisabillity(Boolean source) {
 		frame.setVisible(source);
 	}
+
 	public JFrame getFrame() {
 		return frame;
 	}

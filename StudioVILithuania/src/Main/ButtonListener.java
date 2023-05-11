@@ -27,9 +27,11 @@ public class ButtonListener extends AbstractButtonListener {
 	String buttonName;
 	public Boolean MapCheck = false;
 	JFrame Test;
-	MapWindow MapWindowSave = new MapWindow( MyHomePage.updatableLabel);
-	//SpecificInformationScreen AdditionalInfo = new SpecificInformationScreen(cityClicked, new JPanel(), new JPanel());
-	//SpecificInformationScreen SaveIt = new SpecificInformationScreen();
+	MapWindow MapWindowSave = new MapWindow(MyHomePage.updatableLabel);
+
+	// SpecificInformationScreen AdditionalInfo = new
+	// SpecificInformationScreen(cityClicked, new JPanel(), new JPanel());
+	// SpecificInformationScreen SaveIt = new SpecificInformationScreen();
 	/**
 	 * Constructor for ButtonListener class. Calls the constructor of the superclass
 	 * (AbstractButtonListener) to initialize the variables.
@@ -53,7 +55,7 @@ public class ButtonListener extends AbstractButtonListener {
 	public void actionPerformed(ActionEvent e) {
 
 		buttonName = this.getButton().getName();
-		
+
 		JFrame myChangedFrame = this.getMyFrame();
 		JLabel myLabel = MyHomePage.updatableLabel;
 		String myLabelText = MyHomePage.updatableLabel.getText();
@@ -64,33 +66,53 @@ public class ButtonListener extends AbstractButtonListener {
 		// If the "Map" button is clicked
 		if (buttonName.equals("Map")) {
 			MapWindowSave.VisibilitySet(true);
-			// TODO: Prevent user from opening multiple MapWindows at a time
-
 		}
-		
+
 		if (buttonName.equals("Search")) {
 
 			// Check if a location has been selected
 			if (myLabelText.equals(" None Selected")) {
-			
-				JOptionPane pane = new JOptionPane("No Location Selected, Click Map and Proceed!", JOptionPane.WARNING_MESSAGE);
-                JDialog dialog = pane.createDialog("Please Select Your Location!");
-                dialog.setAlwaysOnTop(true);
-                dialog.setModal(false);
-                dialog.setVisible(true);
 
-                // Close the dialog after 3 seconds
-                Timer timer = new Timer(3000, event -> {
-                		dialog.dispose();
-                });
-                
-                timer.setRepeats(false);
-                timer.start();
-                
+				JOptionPane pane = new JOptionPane("No Location Selected, Click Map and Proceed!",
+						JOptionPane.WARNING_MESSAGE);
+				JDialog dialog = pane.createDialog("Please Select Your Location!");
+
+				dialog.setAlwaysOnTop(true);
+				dialog.setModal(false);
+				dialog.setVisible(true);
+
+				// Close the dialog after 3 seconds
+				Timer timer = new Timer(3000, event -> {
+					dialog.dispose();
+				});
+
+				timer.setRepeats(false);
+				timer.start();
+
 				return;
-				
-			} else {
-				
+			} else if (myLabelText.equals(" Nepasirinkta")) {
+
+				JOptionPane pane = new JOptionPane("Vietovės Nepasirinkta, Spustelėkite Žemėlapį ir Tęskite!",
+						JOptionPane.WARNING_MESSAGE);
+				JDialog dialog = pane.createDialog("Prašome Pasirinkti Savo Buvimo Vietą!");
+
+				dialog.setAlwaysOnTop(true);
+				dialog.setModal(false);
+				dialog.setVisible(true);
+
+				// Close the dialog after 3 seconds
+				Timer timer = new Timer(3000, event -> {
+					dialog.dispose();
+				});
+
+				timer.setRepeats(false);
+				timer.start();
+
+				return;
+			}
+
+			else {
+
 				myChangedFrame.getContentPane().removeAll();
 				myChangedFrame.getContentPane().repaint();
 				new SelectionScreen(myChangedFrame, myLabel);
@@ -108,7 +130,7 @@ public class ButtonListener extends AbstractButtonListener {
 			}
 
 		}
-		
+
 		// If the "Home" button is clicked
 		if (buttonName.equals("Home")) {
 			myChangedFrame.getContentPane().removeAll();
@@ -117,18 +139,17 @@ public class ButtonListener extends AbstractButtonListener {
 		}
 
 		if (buttonName.equals("Selection Screen")) {
-			
-			
+
 			myChangedFrame.getContentPane().removeAll();
 			new SelectionScreen(myChangedFrame, myLabel);
 		}
-	
+
 		if (buttonName.equals("MoreInfo")) {
 			myChangedFrame.getContentPane().removeAll();
 			myChangedFrame.getContentPane().repaint();
 
 		}
-		
+
 	}
 
 	/**
@@ -143,6 +164,7 @@ public class ButtonListener extends AbstractButtonListener {
 		// Keep Empty For Now
 
 	}
+
 	public void setMapCheck(Boolean mapCheck) {
 		MapCheck = mapCheck;
 	}

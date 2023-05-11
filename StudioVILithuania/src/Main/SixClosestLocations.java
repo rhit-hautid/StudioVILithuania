@@ -94,8 +94,6 @@ public class SixClosestLocations {
 		for (int i = 0; i < 6; i++) {
 			globalSix.add(i, sixLocations.get(i));
 		}
-		System.out.println("This is Six" + sixLocations);
-		System.out.println("This is Global" + globalSix);
 
 	}
 
@@ -107,7 +105,6 @@ public class SixClosestLocations {
 	 *         given city.
 	 */
 	public ArrayList<String> getGlobalSixLocations() {
-		System.out.println("This is Get" + globalSix);
 		return globalSix;
 	}
 

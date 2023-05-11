@@ -39,10 +39,13 @@ public class MyHomePage {
 	public static final Dimension FIRST_SCREEN_SIZE = new Dimension(1540, 825);
 	JButton searchButton = new JButton("Search");
 	JButton mapButton = new JButton("Map");
-//	private String cityClicked;
 	public static JLabel updatableLabel = new JLabel();
-//	GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
-//	GraphicsDevice device = graphics.getDefaultScreenDevice();
+	public static String pickedLanguage = Main.pickedLanguage;
+	private final String[] choices = new String[4];
+	private final String[] choicesTwo = new String[5];
+	private final JLabel labelTwo = new JLabel("Come here to explore the beautiful castles of Lithuania");
+	private final JLabel label = new JLabel("Find A Place To Visit");
+	
 
 	String[] TopPlaces = new String[6];
 
@@ -53,7 +56,44 @@ public class MyHomePage {
 
 		frame.setSize(FIRST_SCREEN_SIZE);
 		panel.setPreferredSize(FIRST_SCREEN_SIZE);
-		frame.setTitle("Lithuanian Travel App");
+		
+		if(pickedLanguage.equals("Lithuanian")){
+			frame.setTitle("Lietuvos Kelionių Programa");
+			choices[0] = "Vieta";
+			choices[1] = "Pilys";
+			choices[2] = "Muziejai";
+			choices[3] = "Istorinės Vietos";
+			
+			choicesTwo[0] = "Renginio Tipas";
+			choicesTwo[1] = "Vienišas";
+			choicesTwo[2] = "Poros";
+			choicesTwo[3] = "Šeima";
+			choicesTwo[4] = "Grupė";
+			
+			updatableLabel.setText(" Nepasirinkta");
+			searchButton.setText("Ieškoti");
+			mapButton.setText("Žemėlapis");
+			labelTwo.setText("Ateikite čia ir ištyrinkite gražias Lietuvos pilis");
+			label.setText("Suraskite vietą, kurią norite aplankyti");
+		}
+		
+		else {
+			frame.setTitle("Lithuanian Travel App");
+			choices[0] = "Venue";
+			choices[1] = "Castles";
+			choices[2] = "Museums";
+			choices[3] = "Historical Sites";
+			
+			choicesTwo[0] = "Type of Party";
+			choicesTwo[1] = "Solo";
+			choicesTwo[2] = "Couple";
+			choicesTwo[3] = "Family";
+			choicesTwo[4] = "Group";
+			
+			updatableLabel.setText(" None Selected");
+	
+		}
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Takes off automatic placement, lets you position where you specifically want
@@ -64,7 +104,6 @@ public class MyHomePage {
 		Insets insets = panel.getInsets();
 
 		// Code for DropDown Button One
-		String[] choices = { "Venue", "Castles", "Museums", "Historical Sites" };
 		final JComboBox<String> dropDownButton = new JComboBox<String>(choices);
 		dropDownButton.setPreferredSize(new Dimension(400, 70));
 		dropDownButton.setFont(new Font("American Typewriter", Font.BOLD, 20));
@@ -74,7 +113,7 @@ public class MyHomePage {
 		panel.add(dropDownButton);
 
 		// Code for DropDown Button Two
-		String[] choicesTwo = { "Type of Party", "Solo", "Couple", "Family", "Group" };
+		
 		final JComboBox<String> dropDownButtonTwo = new JComboBox<String>(choicesTwo);
 		dropDownButtonTwo.setPreferredSize(new Dimension(400, 70));
 		dropDownButtonTwo.setFont(new Font("American Typewriter", Font.BOLD, 20));
@@ -93,7 +132,8 @@ public class MyHomePage {
 		// code for the updatableLabel
 		updatableLabel.setPreferredSize(new Dimension(200, 70));
 		Dimension sizeFour = updatableLabel.getPreferredSize();
-		updatableLabel.setText(" None Selected");
+		
+		
 		updatableLabel.setBounds(215 + insets.left, 475 + insets.bottom, sizeFour.width, sizeFour.height);
 		updatableLabel.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		updatableLabel.setVisible(true);
@@ -120,7 +160,7 @@ public class MyHomePage {
 		panel.add(mapButton);
 
 		// code for my heading
-		JLabel label = new JLabel("Find A Place To Visit");
+		
 		label.setPreferredSize(new Dimension(400, 70));
 		Dimension sizeSeven = label.getPreferredSize();
 		panel.add(label);
@@ -128,7 +168,7 @@ public class MyHomePage {
 		label.setBounds(305 + insets.left, 125 + insets.bottom, sizeSeven.width, sizeSeven.height);
 
 		// code for my short description
-		JLabel labelTwo = new JLabel("Come here to explore the beautiful castles of Lithuania");
+		 
 		labelTwo.setPreferredSize(new Dimension(600, 100));
 		Dimension sizeEight = labelTwo.getPreferredSize();
 		panel.add(labelTwo);
