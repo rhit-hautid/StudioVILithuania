@@ -74,7 +74,6 @@ public class MyHomePage {
 		panel.add(labelTwo);
 		labelTwo.setFont(new Font("American Typewriter", Font.BOLD, 15));
 
-		
 		if (pickedLanguage.equals("Lithuanian")) {
 			frame.setTitle("Lietuvos Kelionių Programa");
 			choices[0] = "Vieta";
