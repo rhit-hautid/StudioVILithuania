@@ -60,7 +60,7 @@ public class SelectionScreen {
 
 		this.myFrame = myFrame;
 		// The name of the clicked city.
-		this.myClickedCityString = myClickedCityLabel.getText().substring(7);
+		this.myClickedCityString = myClickedCityLabel.getText().substring(1);
 
 		// Color yellow
 		Color myYellow = new Color(245, 185, 19);
