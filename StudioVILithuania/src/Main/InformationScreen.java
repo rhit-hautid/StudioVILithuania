@@ -93,6 +93,7 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 		myPanelOne.add(castleHistoryLabel);
+		
 
 		// Create a new JLabel and set the castleHistory text to it
 		JLabel myDescriptionLabel = new JLabel(
@@ -100,6 +101,7 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 		myPanelTwo.add(myDescriptionLabel);
+
 
 		// changes the language of my additional information button and the font size
 		// depending on if Lithuanian or English Language
