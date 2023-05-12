@@ -164,16 +164,6 @@ public class MapWindow {
 			});
 		}
 
-		// adds 10 of my circle buttons to the window for the castles
-		for (int i = 0; i < 10; i++) {
-			circleButton[i] = new CircleButton(null);
-			circleButton[i].setBounds(castleButtonCoordinates[i][0], castleButtonCoordinates[i][1], 10, 10);
-			mapPanel.add(circleButton[i]);
-			circleButton[i].repaint();
-			circleButton[i].setName(cityNames[i]);
-
-		}
-
 		// add image of map to the panel
 		ImageIcon myMap = new ImageIcon("StudioVILithuania/HomePageImages/LithuanianMap.PNG");
 		JLabel jlPic = new JLabel(myMap);

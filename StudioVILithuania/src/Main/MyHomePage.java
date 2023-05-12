@@ -82,20 +82,21 @@ public class MyHomePage {
 		panel.add(labelThree);
 		labelThree.setFont(new Font("American Typewriter", Font.BOLD, 45));
 
+		//checks what language was chosen and translates the page to that language
 		if (pickedLanguage.equals("Lithuanian")) {
 			frame.setTitle("Lietuvos Kelionių Programa");
-			choices[0] = "Vieta";
+			choices[0] = "Ką norėtum tyrinėti?";
 			choices[1] = "Pilys";
 			choices[2] = "Muziejai";
 			choices[3] = "Istorinės Vietos";
 
-			choicesTwo[0] = "Renginio Tipas";
+			choicesTwo[0] = "Su kuo keliauji?";
 			choicesTwo[1] = "Vienišas";
 			choicesTwo[2] = "Poros";
 			choicesTwo[3] = "Šeima";
 			choicesTwo[4] = "Grupė";
 
-			updatableLabel.setText(" Žemėlapis");
+			updatableLabel.setText(" Stumkite žemėlapį");
 			searchButton.setText("Ieškoti");
 			mapButton.setText("Žemėlapis");
 			labelTwo.setText("Ateikite čia ir ištyrinkite gražias Lietuvos pilis");
@@ -104,19 +105,19 @@ public class MyHomePage {
 			labelThree.setText("Atraskite Lietuvą");
 			label.setBounds(235 + insets.left, 140 + 8 + insets.bottom, sizeSeven.width, sizeSeven.height);
 			labelTwo.setBounds(233 + insets.left, 180 + 8 + insets.bottom, sizeEight.width, sizeEight.height);
-			labelThree.setBounds(12 + insets.left, 140 + insets.top, sizeTen.width, sizeTen.height);
+			labelThree.setBounds(590 + insets.left, 20 + insets.top, sizeTen.width, sizeTen.height);
 			labelTwo.setFont(new Font("American Typewriter", Font.BOLD, 17));
 
 		}
 
 		else {
 			frame.setTitle("Lithuanian Travel App");
-			choices[0] = "Venue";
+			choices[0] = "What would you like to explore?";
 			choices[1] = "Castles";
 			choices[2] = "Museums";
 			choices[3] = "Historical Sites";
 
-			choicesTwo[0] = "Type of Party";
+			choicesTwo[0] = "Who are you traveling with?";
 			choicesTwo[1] = "Solo";
 			choicesTwo[2] = "Couple";
 			choicesTwo[3] = "Family";
@@ -142,7 +143,6 @@ public class MyHomePage {
 		panel.add(dropDownButton);
 
 		// Code for DropDown Button Two
-
 		final JComboBox<String> dropDownButtonTwo = new JComboBox<String>(choicesTwo);
 		dropDownButtonTwo.setPreferredSize(new Dimension(400, 70));
 		dropDownButtonTwo.setFont(new Font("American Typewriter", Font.BOLD, 20));
@@ -161,7 +161,6 @@ public class MyHomePage {
 		// code for the updatableLabel
 		updatableLabel.setPreferredSize(new Dimension(200, 70));
 		Dimension sizeFour = updatableLabel.getPreferredSize();
-
 		updatableLabel.setBounds(215 + insets.left, 475 + 10 + insets.bottom, sizeFour.width, sizeFour.height);
 		updatableLabel.setFont(new Font("American Typewriter", Font.BOLD, 20));
 		updatableLabel.setVisible(true);

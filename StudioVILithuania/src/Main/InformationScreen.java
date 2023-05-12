@@ -34,7 +34,6 @@ public class InformationScreen extends AbstractInformationScreen {
 	String whatsNearby;
 	String gettingAround;
 	String restaurants;
-	
 	String usefulInformation;
 
 	public InformationScreen(JFrame myChangedFrame, String string) {
@@ -55,6 +54,8 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		String fileName = "StudioVILithuania/TextFiles/" + string;
 
+		//checks what language was chosen and puts that information from the 
+		//text files on the information window 
 		if (pickedLanguage.equals("Lithuanian")) {
 			try (Scanner reader = new Scanner(new FileReader(fileName))) {
 
@@ -95,7 +96,7 @@ public class InformationScreen extends AbstractInformationScreen {
 
 		// Create a new JLabel and set the castleHistory text to it
 		JLabel myDescriptionLabel = new JLabel(
-				"<html>" + whatsNearby + gettingAround + restaurants + usefulInformation);
+				"<html>" + whatsNearby + gettingAround + restaurants + usefulInformation + "<br>");
 
 		// Add the castleHistoryLabel to the appropriate panel (myPanelOne in this case)
 		myPanelTwo.add(myDescriptionLabel);
@@ -113,11 +114,13 @@ public class InformationScreen extends AbstractInformationScreen {
 			myDescriptionLabel.setFont(new Font(myDescriptionLabel.getText(), Font.PLAIN, 19));
 
 		}
-
+		
 		myAdditionalInformation.setName("MoreInfo");
-
+		myAdditionalInformation.setFont(new Font("American Typewriter", Font.BOLD, 20));;
+	
 		myAdditionalInformation.addActionListener(new ActionListener() {
 
+			// for the additional information window
 			@Override
 			public void actionPerformed(ActionEvent e) {
 

@@ -47,7 +47,7 @@ public abstract class AbstractInformationScreen {
 		this.myFrame = myChangedFrame;
 		this.cityClicked = string;
 
-		// Color yellow
+		// The colors for my banner
 		Color myYellow = new Color(245, 185, 19);
 		Color myGreen = new Color(0, 106, 68);
 		Color myRed = new Color(193, 39, 45);
@@ -90,8 +90,6 @@ public abstract class AbstractInformationScreen {
 		mySelectionButton.addActionListener(new ButtonListener(mySelectionButton, myFrame));
 
 		myClearPanel.add(mySelectionButton);
-
-//		Hello Please Send
 
 		// The panel containing the location panel
 		myInformationPanel = new JPanel(new GridLayout(1, 2)); // Create a 1 by 2 GridLayout

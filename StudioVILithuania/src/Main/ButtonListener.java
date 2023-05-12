@@ -62,15 +62,16 @@ public class ButtonListener extends AbstractButtonListener {
 		String[] castleNames = { "Klaipeda", "Panemune", "Raudone", "Raudonvaris", "Kaunas", "Birzai", "Siesikai",
 				"Medininkai", "Norviliskes", "Trakai" };
 
-		// If the "Search" button is clicked
+		
 		// If the "Map" button is clicked
 		if (buttonName.equals("Map")) {
 			MapWindowSave.VisibilitySet(true);
 		}
-
+		// If the "Search" button is clicked
 		if (buttonName.equals("Search")) {
 
-			// Check if a location has been selected
+			// Check if a location has been selected, if no city selected an error message 
+			//appears. also checks what language was selected by the user. 
 			if (myLabelText.equals(" Click Map")) {
 
 				JOptionPane pane = new JOptionPane("No Location Selected, Click Map and Proceed!",
@@ -143,7 +144,7 @@ public class ButtonListener extends AbstractButtonListener {
 			myChangedFrame.getContentPane().removeAll();
 			new SelectionScreen(myChangedFrame, myLabel);
 		}
-
+		// If the "Additional Information: City" button is clicked
 		if (buttonName.equals("MoreInfo")) {
 			myChangedFrame.getContentPane().removeAll();
 			myChangedFrame.getContentPane().repaint();
