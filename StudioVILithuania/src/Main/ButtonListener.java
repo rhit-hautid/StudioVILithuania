@@ -91,7 +91,7 @@ public class ButtonListener extends AbstractButtonListener {
 				timer.start();
 
 				return;
-			} else if (myLabelText.equals(" Žemėlapis")) {
+			} else if (myLabelText.equals(" Stumkite žemėlapį")) {
 
 				JOptionPane pane = new JOptionPane("Vietovės Nepasirinkta, Spustelėkite Žemėlapį ir Tęskite!",
 						JOptionPane.WARNING_MESSAGE);
