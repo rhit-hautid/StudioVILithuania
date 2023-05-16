@@ -11,6 +11,7 @@ import javax.swing.JPanel;
  * method which is invoked when the program starts running.
  * 
  * @author Isabel Haut
+ * @author Sebastien Hughes
  */
 public class Main {
 

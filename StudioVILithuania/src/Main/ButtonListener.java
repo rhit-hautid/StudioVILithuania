@@ -20,6 +20,7 @@ import javax.swing.Timer;
  * message.
  * 
  * @author Isabel Haut
+ * @author Sebastien Hughes
  */
 public class ButtonListener extends AbstractButtonListener {
 

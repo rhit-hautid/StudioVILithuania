@@ -18,6 +18,7 @@ import javax.swing.JLabel;
  * The class contains methods to get and set the list of six closest locations.
  * 
  * @author Isabel Haut
+ * @author Sebastien Hughes
  */
 public class SixClosestLocations {
 

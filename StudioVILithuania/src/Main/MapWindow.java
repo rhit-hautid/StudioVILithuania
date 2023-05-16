@@ -23,6 +23,7 @@ import javax.swing.JPanel;
  * variables and constructors.
  * 
  * @author Isabel Haut
+ * @author Sebastien Hughes
  */
 public class MapWindow {
 

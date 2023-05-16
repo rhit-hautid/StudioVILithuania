@@ -24,6 +24,7 @@ import javax.swing.JPanel;
  * the user's selection of a city in a previous screen.
  * 
  * @author Isabel Haut
+ * @author Sebastien Hughes
  */
 public class SelectionScreen {
 

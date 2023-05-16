@@ -21,6 +21,7 @@ import javax.swing.JPanel;
  * 
  *
  * @author Isabel Haut
+ * @author Sebastien Hughes
  */
 
 public class InformationScreen extends AbstractInformationScreen {
